@@ -13,9 +13,11 @@ docs/specs for a lisp intro site
 * packaging
 
 ## Example code
-* Trotter
-* Burrito
-*
+* Trotter  - web crawler
+* Sausage  - ASDF library for crawling the web
+* Cheese   - Database interface
+* Burrito  - Uses sausage to crawl the web and
+
 
 ## Development
 
