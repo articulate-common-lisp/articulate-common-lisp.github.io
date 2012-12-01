@@ -13,10 +13,20 @@ Installing on Linux and OSX
 
 Linux is the "home OS" of SBCL. The installation procedure also works
 the same easy for OSX. Typically the best way to start is to download
-the binary from www.sbcl.org and install it (The README is very
-helpful).
+the binary from www.sbcl.org and install it.
 
-After that, run sbcl and you should find the REPL! Congratulations!
+The procedure for installing it on your system runs as so:
+
+tar xjf <sbcl-binary>
+cd sbcl-<version-name>
+sudo make install
+
+
+After that, execute sbcl at the command line and you should find the
+REPL! Congratulations!
+
+SBCL's REPL is designed to be used in an environment such as
+emacs. Check the IDE help page for more information.
 
 
 Installing on Windows

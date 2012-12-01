@@ -1,17 +1,33 @@
 EMACS
 ====
 
-Emacs is the modern open source Lisp IDE. Its history and quirks
+Emacs is *the* modern open source Lisp IDE. Its history and quirks
 extend back to the Lisp machines and early editors such as TECO.
 
 It is considered difficult to initially learn, and often disparaged
-due to the antiquated interface, but is generally the best open source
-free IDE for CL.
+due to the antiquated interface, but is generally thought the best open
+source free IDE for Common Lisp.
 
-Usually you want to get SLIME installed for emacs, available at
-http://www.common-lisp.net/project/slime/.
+In order to use emacs, there are two variants; XEmacs and GNU Emacs. I
+usually use GNU emacs, so I'll talk about it here.
 
-A few enhancements are usually good to make for maximum usefulness:xs
+In order to get it, you can obtain it from the Free Software
+Foundation ( http://www.gnu.org/software/emacs/). Windows, Linux, and
+OSX versions are available. It's also available via most Linux
+distributions package repositories.  The most recent version is 24; 23
+is also recent and works well with the Superior Lisp Interaction Mode
+for Emacs, a.k.a Slime.
+
+New users can find many resources online, including a well-written
+help system!
+
+Usually you want to get SLIME installed for your development. If
+you're using emacs23, it's available at
+http://www.common-lisp.net/project/slime/. Emacs24 has it in its
+package manager.
+
+I like to use the following elisp to configure SLIME:
+
 
 (setq inferior-lisp-program  "/usr/local/bin/sbcl") ;modify to taste
 (require 'slime)
