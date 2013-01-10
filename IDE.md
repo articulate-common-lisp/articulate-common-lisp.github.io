@@ -12,7 +12,7 @@ Open Source
 ---
 - emacs/SLIME ( http://www.gnu.org/software/emacs/ )
 
-Maintained
+Maintained.
 
 - vim/SLIME (http://www.vim.org/scripts/script.php?script_id=2531 )
 
@@ -28,7 +28,7 @@ Unmaintained.
 
 - Ufasoft (Windows) ( http://ufasoft.com/lisp/ )
 
-Unmaintained
+Unmaintained.
 
 Non-open source
 ---
