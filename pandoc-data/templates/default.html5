@@ -14,6 +14,7 @@ $endif$
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 $if(quotes)$
+
   <style type="text/css">
     q { quotes: "“" "”" "‘" "’"; }
   </style>
@@ -32,8 +33,24 @@ $endif$
 $for(header-includes)$
   $header-includes$
 $endfor$
+
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+<style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="site/css/bootstrap-responsive.css" rel="stylesheet">
+    <link rel="shortcut icon" href="site/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="site/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="site/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="site/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="site/ico/apple-touch-icon-57-precomposed.png">
 </head>
 <body>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 $for(include-before)$
 $include-before$
 $endfor$
