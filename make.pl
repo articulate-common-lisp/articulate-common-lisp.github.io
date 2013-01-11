@@ -18,8 +18,6 @@ sub build_banner {
           <a class="brand" href="#">articulate-lisp.com</a>
           <div class="nav-collapse collapse">
     <ul class="nav">
-<!--    <li class="active">
-    </li> -->
     ';
     foreach my $fn (@members) {
         my $active_str = '';
@@ -45,7 +43,7 @@ foreach my $FN (@FNs) {
     open( $fh, ">", "banner.html");
     print $fh build_banner($FN, @FNs);
     close $fh;
-    my $cmd ="pandoc -B banner.html -T 'Articulate Common Lisp' --template=pandoc-data/templates/default.html5 --ascii --smart --normalize --highlight-style=haddock -f markdown -t html5 $FN.md -o site/$FN.html";
+    my $cmd ="pandoc -B banner.html -A quantcast.html -T 'Articulate Common Lisp' --template=pandoc-data/templates/default.html5 --ascii --smart --normalize --highlight-style=haddock -f markdown -t html5 $FN.md -o site/$FN.html";
 
     say $cmd;
     `$cmd`;
