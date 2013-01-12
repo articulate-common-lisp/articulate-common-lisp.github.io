@@ -1,4 +1,4 @@
-% Initial Environment Setup
+% SBCL Setup
 %
 %
 

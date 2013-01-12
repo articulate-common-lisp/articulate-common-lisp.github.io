@@ -1,42 +1,35 @@
 articulate-common-lisp
 ======================
 
-docs/specs for a lisp intro site
+how to write Common Lisp in 2013
 
-## Initial environment setup
+an initiation manual for the uninitiated
 
-* setting up SBCL
-* setting up development environment: Emacs or something more beginner friendly?
-* creating a new project
-* dependency management with quicklisp
-* building the project
-* packaging
+---
 
-## Example code
-* Trotter  - web crawler
-* Sausage  - ASDF library for crawling the web
-* Cheese   - Database interface
-* Burrito  - Uses sausage to crawl the web and
+## First steps
+
+```
+(initialize-new-lisper 'YOU)
+
+```
+
+* Set up [CLISP](clisp-setup.html)
+* Set up [Quicklisp](quicklisp.html)
+* Write some [Lisp](abcs.html)
+* Look up our [Trotter](trotter-walkthrough.html)
 
 
-## Development
+## Next Steps
 
-* running the server
-* connecting to REPL
-* creating pages
-* templating
-* user logins
-* session management
-* page visibility/redirects
-* hooking up to MySQL or PostgreSQL
+*"The road goes ever on..."*
 
-## Language Resource Recommends
-* PCL
-* Gentle Introduction
-* Land of Lisp
-* On Lisp
+Check out the [Next Steps](nextsteps.html) tutorial.
 
-## Lisp Culture
-* Style
-* Conventions
-* Where to find help
+---
+
+For quick reference, keep [Quick Links](quicklinks.html) bookmarked.
+
+
+
+

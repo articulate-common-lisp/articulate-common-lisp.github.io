@@ -15,7 +15,8 @@ Go over there and install it, then come back to this tutorial.
 Let's assume for the purpose of the starting project that you want to
 recursively walk a web server and take some action based upon the
 internal contents. We've supplied a minimal (not very robust or
-general) solution in `web-trotter.lisp`, available from [our site](src/web-trotter.lisp).
+general) solution in `web-trotter.lisp`, available from
+[our site](src/web-trotter.lisp).
 
 Without examining the details of the Trotter, notice that there's a
 line:
