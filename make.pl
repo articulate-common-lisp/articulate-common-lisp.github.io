@@ -43,7 +43,7 @@ foreach my $FN (@FNs) {
     open( $fh, ">", "banner.html");
     print $fh build_banner($FN, @FNs);
     close $fh;
-    my $cmd ="pandoc -B banner.html -A quantcast.html -T 'Articulate Common Lisp' --template=pandoc-data/templates/default.html5 --ascii --smart --normalize --highlight-style=haddock -f markdown -t html5 $FN.md -o site/$FN.html";
+    my $cmd ="pandoc -B banner.html -B content-begin.html -A content-footer.html -A quantcast.html -T 'Articulate Common Lisp' --template=pandoc-data/templates/default.html5 --ascii --smart --normalize --highlight-style=haddock -f markdown -t html5 $FN.md -o site/$FN.html";
 
     say $cmd;
     `$cmd`;
