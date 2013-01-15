@@ -14,7 +14,7 @@ an initiation manual for the uninitiated
 
 ```
 
-* Set up [CLISP](clisp-setup.html)
+* Set up [CCL](ccl-setup.html)
 * Set up [Quicklisp](quicklisp.html)
 * Write some [Lisp](abcs.html)
 * Look up our [Trotter](trotter-walkthrough.html)

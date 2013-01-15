@@ -4,8 +4,10 @@
 
 # Quick Links
 
+
 ## Initial environment setup
 
+* getting a Common Lisp implementation
 * creating a new project
 * dependency management with quicklisp
 * building the project
