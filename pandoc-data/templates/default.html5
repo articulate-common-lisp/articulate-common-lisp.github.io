@@ -35,7 +35,7 @@ $for(header-includes)$
 $endfor$
 
 
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap.css" rel="stylesheet">
 <style>
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -49,7 +49,7 @@ $endfor$
     <link rel="apple-touch-icon-precomposed" href="site/ico/apple-touch-icon-57-precomposed.png">
 </head>
 <body>
-  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
 $for(include-before)$
 $include-before$

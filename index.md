@@ -14,7 +14,7 @@ an initiation manual for the uninitiated
 
 ```
 
-* Set up [CCL](ccl-setup.html)
+* Set up [SBCL](sbcl-setup.html)
 * Set up [Quicklisp](quicklisp.html)
 * Write some [Lisp](abcs.html)
 * Look up our [Trotter](trotter-walkthrough.html)
@@ -29,7 +29,3 @@ Check out the [Next Steps](nextsteps.html) tutorial.
 ---
 
 For quick reference, keep [Quick Links](quicklinks.html) bookmarked.
-
-
-
-

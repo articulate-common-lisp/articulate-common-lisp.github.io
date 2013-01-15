@@ -30,6 +30,21 @@ REPL! Congratulations!
 SBCL's REPL is designed to be used in an environment such as
 emacs' SLIME interface. Check the IDE help page for more information.
 
+Linedit
+---
+
+The tool Linedit should provide some reasonable CLI capabilities for
+users.
+
+In order to load it into SBCL, copy and paste the following snippet:
+
+```
+(progn
+ (ql:quickload :linedit)
+ (require :sb-aclrepl)
+ (require :linedit)
+ (funcall (intern "INSTALL-REPL" :linedit) :wrap-current t))
+```
 
 Installing on Windows
 ---
