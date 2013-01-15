@@ -1,5 +1,6 @@
 (ql:quickload '(:cl-ppcre
                 :external-program
+                :osicat
                 :alexandria
                 :split-sequence))
 
@@ -9,7 +10,7 @@
     "-B" "content-begin.html"
     "-A" "content-footer.html"
     "-A" "quantcast.html"
-    "-T" "'Articulate Common Lisp'"
+    "-T" "Articulate Common Lisp"
     "--template=pandoc-data/templates/default.html5"
     "--ascii"
     "--smart"
@@ -139,5 +140,7 @@
 (defun build-files ()
   (loop for file in (find-file-prefixes (ls))
         do
+           (format t "~&articulating ~a into the final form...~&" file)
            (build-a-file file))
+  (format t "~&final reticulation...~&")
   (external-program:run "cp" '("-r" "src" "site/") ))
