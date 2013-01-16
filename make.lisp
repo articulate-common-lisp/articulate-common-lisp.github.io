@@ -129,9 +129,14 @@
            path-list)))
 
 (defun build-a-file(filename)
-  (batteries:write-text-file
-   "banner.html"
-   (build-banner filename (find-file-prefixes (ls))))
+  (with-open-file (stream
+                   "banner.html"
+                   :direction :output
+                   :if-exists :supersede
+                   :if-does-not-exist :create)
+    (write-sequence (build-banner filename (find-file-prefixes (ls)))
+                    stream))
+
   (external-program:run
    "pandoc"
    (generate-command filename)))
