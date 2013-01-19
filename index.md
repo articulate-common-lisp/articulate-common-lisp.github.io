@@ -5,27 +5,17 @@ how to write Common Lisp in 2013
 
 an initiation manual for the uninitiated
 
----
-
-## First steps
-
 ```
 (initialize-new-lisper 'YOU)
 
 ```
 
-* Set up [SBCL](sbcl-setup.html)
-* Set up [Quicklisp](quicklisp.html)
-* Write some [Lisp](abcs.html)
-* Look up our [Trotter](trotter-walkthrough.html)
-
-
-## Next Steps
-
-*"The road goes ever on..."*
-
-Check out the [Next Steps](nextsteps.html) tutorial.
 
 ---
 
-For quick reference, keep [Quick Links](quicklinks.html) bookmarked.
+* Set up [SBCL](sbcl-setup.html).
+* Set up [Quicklisp](quicklisp.html).
+* Write some [Lisp](abcs.html).
+* Look up our [Trotter](trotter-walkthrough.html).
+* Check out the new project [tutorial](initial:new-project.html)
+* Keep our [Quick Links](quicklinks.html) bookmarked.

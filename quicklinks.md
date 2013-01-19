@@ -1,8 +1,6 @@
-% Next Steps
+% Quick Links
 %
 %
-
-# Quick Links
 
 
 ## Initial environment setup
@@ -44,4 +42,3 @@
 * Style
 * Conventions
 * Where to find help
-
