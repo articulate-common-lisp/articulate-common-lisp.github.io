@@ -50,7 +50,7 @@
 
     (let ((dropdowns (first kinds))     ; hash table
           (no-dropdowns (second kinds))
-          (toplevel "<li ~a><a href=\"~a.html\">~a</a></li>\n"))
+          (toplevel "<li ~a><a href=\"~a.html\">~a</a></li>~%"))
 
       (format
        nil
