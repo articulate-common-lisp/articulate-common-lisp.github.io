@@ -1,0 +1,35 @@
+articulate-common-lisp
+======================
+
+docs/specs for a tutorial/introduction site for a Common Lisp environment
+
+
+Dear Reader,
+
+One of the key problems in onboarding developers to use modern Common Lisp is the vertical wall of difficulty. Things that are routinely problematic:
+
+- emacs use. Most people don't use emacs. 
+
+- Library creation. Putting together ASDF libraries and using them is a fairly horrid experience the first time.
+
+- Selection of Lisp system to use, along with an up-to-date discussion of pros and cons.
+
+- Putting together serious projects is not commonly discussed.
+
+
+This repository serves as the source code to build a Common Lisp site dedicated to handling these problems. It's not intended to be a HOWTO for Common Lisp. That's been covered *quite* well.  This 
+
+This is on *github*, because github (for better or worse) has become a de-facto standard for collaboration in the software world. I'd like to collaborate with other people to build a remarkably fine Lisp help site.  Contributions are both **accepted and welcome**. It's a wholly static site at this point in time - I don't see a need for articulate-lisp.com to have a dynamic backend. Perhaps/probably one of the code examples will be a webapp. 
+
+Happy Hacking. 
+Paul Nathan
+
+P.S.: feel free to contact me for anything you like.
+
+
+Notes regarding build process.
+===
+
+Various site building tools are out there; I wanted one that was, above all, simple. Initially Jekyll was chosen, but Ruby proved contentious, and frankly, I wanted to ship the site. Pandoc was really easy to use and install on my OSX boxes. With a bit of hackery on the templates, I could generate a very nice page. With a bit more hackery, `make.lisp` got created, which included snippets automatically, as well as have a simplistic 1-level hierarchical menu for sections of the site based on filename.  I use SBCL as the Lisp system for make.lisp.
+
+On the build side, the `master` branch is polled routinely by a Jenkins instance at home, which builds the site into the "site" folder and then uploads it to the [http://articulate-lisp.com](http://articulate-lisp.com) host.  
