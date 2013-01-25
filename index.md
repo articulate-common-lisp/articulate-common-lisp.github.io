@@ -1,5 +1,6 @@
-articulate-common-lisp
-======================
+% articulate-common-lisp
+%
+%
 
 how to write Common Lisp in 2013
 
@@ -13,7 +14,7 @@ an initiation manual for the uninitiated
 
 ---
 
-* Set up [SBCL](sbcl-setup.html).
+* Set up your [lisp system](lisp-system.html).
 * Set up [Quicklisp](quicklisp.html).
 * Write some [Lisp](abcs.html).
 * Look up our [Trotter](trotter-walkthrough.html).

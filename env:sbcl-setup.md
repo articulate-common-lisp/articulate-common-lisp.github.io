@@ -38,7 +38,7 @@ users.
 
 In order to load it into SBCL, copy and paste the following snippet:
 
-```
+```Commonlisp
 (progn
  (ql:quickload :linedit)
  (require :sb-aclrepl)
