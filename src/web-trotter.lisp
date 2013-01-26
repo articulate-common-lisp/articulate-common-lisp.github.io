@@ -17,17 +17,20 @@
 (defun http-p (url)
   (cl-ppcre:all-matches "\\bhttp://" url))
 
-;; A not terribly great way to determine if the data is ASCII
 (defun ascii-p (data)
+  "A not terribly great way to determine if the data is ASCII"
   (unless (stringp data)
     (loop for elem across data do
 	 (when (> elem 127)
 	   (return-from ascii-p nil))))
   t)
 
-;; A poor way to determine if we want to go grab something for link
-;; examination. Really needs to be a regex or a smart substring chop.
+
 (defun known-binary (url)
+  "Given a URL, returns a truthy value if its a binary.
+
+A poor way to determine if we want to go grab something for link
+examination. Really needs to be a regex or a smart substring chop."
   (or (search ".png" url)
        (search ".bmp" url)
        (search ".jpg" url)
@@ -40,10 +43,11 @@
        (search ".dtd" url)
        (search ".pdf" url)
        (search ".xml" url)
-       (search ".tgz" url)))
+       (search ".tgz" url))
+)
 
-;; Scrapes links from a  URL. Prints to STDOUT if an error is caught
 (defun find-links (url)
+  "Scrapes links from a URL. Prints to STDOUT if an error is caught"
   (when (and (http-p url)
 	     (not (known-binary url)))
     (handler-case
@@ -56,15 +60,22 @@
 		   page
 		   (babel:octets-to-string page))))))
 
-      #+sbcl(sb-int:simple-stream-error (se) (format t "Whoops, ~a didn't work. ~a~%" url se))
-      (DRAKMA::DRAKMA-SIMPLE-ERROR (se) (format t "Error? ~a threw ~a~%" url se))
-      (USOCKET:TIMEOUT-ERROR (se) (format t "timeout error ~a threw ~a~%" url se))
-      (USOCKET:NS-HOST-NOT-FOUND-ERROR (se) (format t "host-not-found error ~a threw ~a~%" url se))
-      (FLEXI-STREAMS:EXTERNAL-FORMAT-ENCODING-ERROR (se) (format t "~a threw ~a~%" url se)))))
+      ;; errors...
+      #+sbcl(sb-int:simple-stream-error (se)
+	      (format t "Whoops, ~a didn't work. ~a~%" url se))
+      (DRAKMA::DRAKMA-SIMPLE-ERROR (se)
+	(format t "Error? ~a threw ~a~%" url se))
+      (USOCKET:TIMEOUT-ERROR (se)
+	(format t "timeout error ~a threw ~a~%" url se))
+      (USOCKET:NS-HOST-NOT-FOUND-ERROR (se)
+	(format t "host-not-found error ~a threw ~a~%" url se))
+      (FLEXI-STREAMS:EXTERNAL-FORMAT-ENCODING-ERROR (se)
+	(format t "~a threw ~a~%" url se)))))
 
-;; BFS walk through the web, depth levels deep. Note that this "will"
-;; eat memory.
+
 (defun walk-page (top-url action depth)
+  "BFS walk through the web, depth levels deep. Note that this *will*
+eat memory."
   (let ((seen-list))
     (labels ((walker (url depth)
 	       (unless (zerop depth)
