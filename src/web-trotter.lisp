@@ -66,11 +66,11 @@ examination. Really needs to be a regex or a smart substring chop."
       (DRAKMA::DRAKMA-SIMPLE-ERROR (se)
 	(format t "Error? ~a threw ~a~%" url se))
       (USOCKET:TIMEOUT-ERROR (se)
-	(format t "timeout error ~a threw ~a~%" url se))
+        (format t "timeout error ~a threw ~a~%" url se))
       (USOCKET:NS-HOST-NOT-FOUND-ERROR (se)
-	(format t "host-not-found error ~a threw ~a~%" url se))
+        (format t "host-not-found error ~a threw ~a~%" url se))
       (FLEXI-STREAMS:EXTERNAL-FORMAT-ENCODING-ERROR (se)
-	(format t "~a threw ~a~%" url se)))))
+        (format t "~a threw ~a~%" url se)))))
 
 
 (defun walk-page (top-url action depth)
@@ -78,19 +78,19 @@ examination. Really needs to be a regex or a smart substring chop."
 eat memory."
   (let ((seen-list))
     (labels ((walker (url depth)
-	       (unless (zerop depth)
-		 (push url seen-list)
-		 (dolist (link (find-links url))
-		   (unless (member link seen-list :test #'string=)
-		     (progn
-		       (push link seen-list)
-		       (funcall action link depth)
-		       (walker link (1- depth))))))))
+               (unless (zerop depth)
+                 (push url seen-list)
+                 (dolist (link (find-links url))
+                   (unless (member link seen-list :test #'string=)
+                     (progn
+                       (push link seen-list)
+                       (funcall action link depth)
+                       (walker link (1- depth))))))))
       (walker top-url depth))))
 
 ;; entry point
 (defun run-trotter ()
   (walk-page "http://cliki.net/"
-	     #'(lambda (url depth)
-		 (format t "~a: ~a~%" depth url))
-	     2))
+             #'(lambda (url depth)
+                 (format t "~a: ~a~%" depth url))
+             2))
