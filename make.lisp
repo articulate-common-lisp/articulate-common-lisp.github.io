@@ -37,7 +37,7 @@
             <span class=\"icon-bar\"></span>
             <span class=\"icon-bar\"></span>
           </a>
-          <a class=\"brand\" href=\"#\">articulate-lisp.com</a>
+          <a class=\"brand\" href=\"index.html\">articulate-lisp.com</a>
           <div class=\"nav-collapse collapse\">
             <ul class=\"nav\">")
         (final-html
