@@ -20,7 +20,9 @@ recompile of the project/file is required to check correctness of the
 code.
 
 It is also feasible to develop in a more traditional style, where
-there is an edit/compile/revise cycle based upon files.
+there is an edit/compile/revise cycle based upon files. In order to do
+that, use the LOAD form from the repl or the particular system's
+automatic load command-line option. `(LOAD "lispfile.lisp")`.
 
 Modern Lisp systems commonly provide on-the-fly compilation of the
 forms entered into it. This will slow down the boot process if the
