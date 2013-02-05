@@ -25,17 +25,22 @@ well-written help system! An emacs tutorial can be found
 and the GNU FAQ is also
 [available](http://www.gnu.org/software/emacs/emacs-faq.text)
 
-Usually you want to get SLIME installed for your development. If
-you're using emacs23, SLIME can be found
-[here](http://www.common-lisp.net/project/slime/). Emacs24 has it in
-its package manager (`M-x package-list-packages`).
+Usually you want to get SLIME installed for your development. 
+
+If you're using emacs23, SLIME can be found
+[here](http://www.common-lisp.net/project/slime/).
+
+Emacs24 has it in its package manager (`M-x package-list-packages`). However, I
+have not had good experiences with the SLIME found in the Marmalade emacs repo.
+
 
 I like to use the following elisp to configure SLIME:
 
 ```
+(require 'cl)
 (setq inferior-lisp-program  "/usr/local/bin/sbcl") ;modify to taste
 (require 'slime)
-(slime-setup '(slime-fancy) 	;adds some nice features
+(slime-setup '(slime-fancy)) 	;adds some nice features
 
 ;; these give you unicode
 (set-language-environment "UTF-8")
