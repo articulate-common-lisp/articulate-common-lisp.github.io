@@ -51,6 +51,24 @@ Installing on Windows
 Dear Windows SBCL user, please tell us how it's done!
 
 
-IDE configuration
+Further installation on Linux/OSX
 ---
-Please see the IDE help page!
+Sometimes the SBCL you pick up from sbcl.org isn't as feature-complete 
+as you want, or perhaps you want to recompile it for your own reasons 
+(i.e., the Hunchentoot web server requires threads).
+
+In order to do this, download the *source* SBCL package and issue this 
+set of commands:
+
+```Bash
+sh ./make.sh --fancy
+pushd doc/manual/ && make && popd
+sudo sh ./install.sh
+```
+
+* --fancy builds with several optional features as of 1.1.3: 
+  :sb-core-compression :sb-xref-for-internals :sb-after-xc-core, plus 
+  threading on supported platforms.
+
+* For platforms with very limited memory, --dynamic-space-size=<MB> 
+  can help ensure that you don't blow the internal Lisp heap.
