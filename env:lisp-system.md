@@ -44,4 +44,4 @@ SBCL  Native High speed compiler
  LW   Native Professional platform
  ACL  Native Professional platform
 ABCL  JVM    Java interop
- GCL  C      C interop, has iOS port
+ ECL  C      C interop, has iOS port
