@@ -10,7 +10,10 @@
 (defun generate-command (fn)
   (list "-B" "banner.html"
     "-B" "content-begin.html"
+    "-A" "begin-footer.html"
     "-A" "content-footer.html"
+    "-A" "version.html"
+    "-A" "end-footer.html"
     "-A" "quantcast.html"
     "-T" "Articulate Common Lisp"
     "--template=pandoc-data/templates/default.html5"
@@ -23,6 +26,25 @@
     (format nil "~a.md" fn)
     "-o" (format nil "site/~a.html" fn)))
 
+
+(defun build-git-hash-file ()
+  (let ((hash (first
+               (split-sequence:split-sequence
+                #\Space
+                (with-output-to-string (s)
+                  (external-program:run "git"  '("show" "-s" "--oneline")
+                                        :output s))))))
+    (with-open-file (stream
+                     "version.html"
+                     :direction :output
+                     :if-exists :supersede
+                     :if-does-not-exist :create)
+      (format stream
+              "~&<div>~%
+<center style=\"font-size=x-small; color:lightgrey\">
+ ~%version: ~a~%
+</center>~%
+</div>" hash))))
 
 (defun determine-name (fn)
   (subseq fn (1+ (position #\: fn))))
@@ -145,6 +167,7 @@
 
 
 (defun build-files ()
+  (build-git-hash-file)
   (loop for file in (find-file-prefixes (ls))
         do
            (format t "~&articulating ~a into the final form...~&" file)

@@ -16,3 +16,10 @@ bug reports should be done via the github location for maximum
 coordination.
 
 Happy hacking!
+
+
+*Credit*
+
+* Analytics by [Quantcast](https://www.quantcast.com/)
+
+* Theme by [Twitter Bootstrap](http://twitter.github.com/bootstrap/)
