@@ -18,3 +18,11 @@ It installs in the usual way for an OSX or Windows application.
 
 The user is recomended to review the LispWorks manual for operation of
 the system.
+
+Notes
+---
+
+I've found that Lispwork's Personal 6.0 doesn't appear to respect the
+Lispworks init file, so the init file (used for Quicklisp) has to be
+loaded manually with the form `(LOAD "~/.lispworks")`. I'm not sure
+why this happens, but I wish it wouldn't!

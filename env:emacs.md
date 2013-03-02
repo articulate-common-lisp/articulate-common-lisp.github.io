@@ -35,7 +35,7 @@ I like to use the following elisp to configure SLIME:
 ```
 (setq inferior-lisp-program  "/usr/local/bin/sbcl") ;modify to taste
 (require 'slime)
-(slime-setup '(slime-fancy) 	;adds some nice features
+(slime-setup '(slime-fancy)     ;adds some nice features
 
 ;; these give you unicode
 (set-language-environment "UTF-8")
@@ -71,4 +71,3 @@ REPL (Read Evaluate Print Loop) buffer created in your Emacs window.
 This provides an interactive view into Common Lisp. You can evaluate functions you
 are writing in the source file and immediately use them in the REPL. This provides a
 very fast "code and test" facility.
-

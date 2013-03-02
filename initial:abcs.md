@@ -179,12 +179,12 @@ Note that the convention is that globals are surrounded with *
   "Reads `filename` as a sequence of unsigned 8-bit bytes, no
 encoding"
   (with-open-file (fin filename
-		   :direction :input
-		   :if-does-not-exist :error)
+                   :direction :input
+                   :if-does-not-exist :error)
     (let ((seq (make-array (file-length fin)
-			   :fill-pointer t)))
+                           :fill-pointer t)))
       (setf (fill-pointer seq)
-	    (read-sequence seq fin))
+            (read-sequence seq fin))
       seq)))
 
 ```

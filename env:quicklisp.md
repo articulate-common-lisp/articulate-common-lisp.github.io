@@ -15,8 +15,8 @@ management system for Common Lisp.
   instance, loading Quicklisp with this command, `$ccl -l
   quicklisp.lisp`
 
-* If you are behind a proxy, use (quicklisp-quickstart:install :proxy
-  "http://your-proxy-here:1337"), of course replacing the proxy
+* If you are behind a proxy, use `(quicklisp-quickstart:install :proxy
+  "http://your-proxy-here:1337")`, of course replacing the proxy
   information with your site proxy information.
 
 * Then, after the installation finishes, before you exit, run

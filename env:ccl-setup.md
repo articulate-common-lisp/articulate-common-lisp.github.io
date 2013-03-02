@@ -33,8 +33,17 @@ Note that each platform has a *different* CCL executable.
 Linedit
 ---
 
+A CLI tool called linedit is useful.
+
+
 ```Commonlisp
 (ql:quickload :linedit)
 (require :linedit)
 (funcall (intern "INSTALL-REPL" :linedit) :wrap-current t)
 ```
+
+Notes
+---
+
+CCL, in general, is very fast to load and has a good reputation for
+performance.

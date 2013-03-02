@@ -16,9 +16,9 @@ The first form in the code is loading the external libraries:
 
 ```Commonlisp
 (ql:quickload '(:drakma
-	        :split-sequence
-		:cl-ppcre
-		:babel))
+                :split-sequence
+                :cl-ppcre
+                :babel))
 ```
 
 `DRAKMA` is the standard HTTP(S) client library in Lisp,
@@ -58,8 +58,8 @@ complexities of Unicode can be deferred.
   "A not terribly great way to determine if the data is ASCII"
   (unless (stringp data)
     (loop for elem across data do
-	 (when (> elem 127)
-	   (return-from ascii-p nil))))
+         (when (> elem 127)
+           (return-from ascii-p nil))))
   t)
 ```
 
@@ -93,16 +93,16 @@ The next form is the most complex: `find-links`.
 (defun find-links (url)
   "Scrapes links from a URL. Prints to STDOUT if an error is caught"
   (when (and (http-p url)
-	     (not (known-binary url)))
+             (not (known-binary url)))
     (handler-case
-	(let ((page (drakma:http-request url)))
-	  (when page
-	    (when (ascii-p page)
-	      (cl-ppcre:all-matches-as-strings
-	       *url-regex*
-	       (if (stringp page)
-		   page
-		   (babel:octets-to-string page))))))
+        (let ((page (drakma:http-request url)))
+          (when page
+            (when (ascii-p page)
+              (cl-ppcre:all-matches-as-strings
+               *url-regex*
+               (if (stringp page)
+                   page
+                   (babel:octets-to-string page))))))
 
       #+sbcl(sb-int:simple-stream-error (se) (format t "Whoops, ~a didn't work. ~a~%" url se))
       (DRAKMA::DRAKMA-SIMPLE-ERROR (se) (format t "Error? ~a threw ~a~%" url se))
