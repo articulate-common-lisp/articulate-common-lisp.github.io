@@ -15,6 +15,7 @@
     "-A" "version.html"
     "-A" "end-footer.html"
     "-A" "quantcast.html"
+    "-A" "footer-js.html"
     "-T" "Articulate Common Lisp"
     "--template=pandoc-data/templates/default.html5"
     "--ascii"
