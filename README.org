@@ -30,6 +30,21 @@ P.S.: feel free to contact me for anything you like.
 
 ** Notes regarding build process.
 
-Various site building tools are out there; I wanted one that was, above all, simple. Initially Jekyll was chosen, but Ruby proved contentious, and frankly, I wanted to ship the site. Pandoc was really easy to use and install on my OSX boxes. With a bit of hackery on the templates, I could generate a very nice page. With a bit more hackery, `make.lisp` got created, which included snippets automatically, as well as have a simplistic 1-level hierarchical menu for sections of the site based on filename.  I use SBCL as the Lisp system for make.lisp.
+Various site building tools are out there; I wanted one that was, above all, simple. Initially Jekyll was chosen, 
+but Ruby proved contentious, and frankly, I wanted to ship the site. Pandoc was really easy to use and install on my
+OSX boxes. With a bit of hackery on the templates, I could generate a very nice page. With a bit more hackery,
+`make.lisp` got created, which included snippets automatically, as well as have a simplistic 1-level hierarchical 
+menu for sections of the site based on filename.  I use SBCL as the Lisp system for make.lisp.
 
-On the build side, the `master` branch is polled routinely by a Jenkins instance at home, which builds the site into the "site" folder and then uploads it to the [http://articulate-lisp.com](http://articulate-lisp.com) host.  
+You can see this in action in the makefile for the system.
+
+On the build side, the `master` branch is polled routinely by a Jenkins instance at home, which builds the site into 
+the "site" folder and then uploads it to the http://articulate-lisp.com host.  
+
+** Contributions.
+
+Please pull off the top of the `devel` branch for your contributions and use github Pull Requests for contributing.
+
+My home Jenkins instance deploys that branch out to articulate-lisp.com/devel. This allows me to merge your PR and 
+see the result quickly without being at a development machine: e.g., I can use my mobile phone to merge your work and 
+keep the awesome flowing as fast as possible. 
