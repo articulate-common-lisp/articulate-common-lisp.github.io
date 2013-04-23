@@ -12,7 +12,7 @@ LispWorks.
 
 Open Source
 ---
-- [emacs/SLIME](http://www.gnu.org/software/emacs/) - Maintained. [Articulate-Lisp emacs article](emacs.html)
+- [emacs/SLIME](http://www.gnu.org/software/emacs/) - Maintained. [Articulate-Lisp emacs article](./env:emacs.html)
 
 - [vim/SLIME](http://www.vim.org/scripts/script.php?script_id=2531) - Maintained.
 
