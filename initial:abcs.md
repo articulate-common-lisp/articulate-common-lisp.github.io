@@ -102,7 +102,7 @@ Popular libraries that the author have not used include:
 
 * parentscript - a CL -> javascript emitter
 
-* lparallel  - a parallelism tool designed around the idea of futures
+* lparallel  - a library for parallel programming
 
 * usocket - TCP socket libary
 
