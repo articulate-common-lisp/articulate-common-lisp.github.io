@@ -12,20 +12,20 @@ LispWorks.
 
 Open Source
 ---
-- [emacs/SLIME](http://www.gnu.org/software/emacs/) - Maintained. [Articulate-Lisp emacs article](emacs.html)
+- [emacs/SLIME](http://www.gnu.org/software/emacs/) - Maintained. [Articulate-Lisp emacs article](./env:emacs.html)
 
 - [vim/SLIME](http://www.vim.org/scripts/script.php?script_id=2531) - Maintained.
 
 - [McClide](http://www.cliki.net/MCLIDE) (OSX) - Maintained.
 
-- [Cusp/Eclipse]( http://bitfauna.com/projects/cusp/ ) - Unmaintained. [Articulate-Lisp cusp article](cusp-setup.html)
+- [Cusp/Eclipse]( http://bitfauna.com/projects/cusp/ ) - Unmaintained. [Articulate-Lisp cusp article](./env:cusp-setup.html)
 
 - [Ufasoft]( http://ufasoft.com/lisp/ ) (Windows)  - Unmaintained.
 
 Non-open source
 ---
 
-- [LispWorks](http://www.lispworks.com/downloads/index.html) - Maintained. [Articulate-lisp LispWorks article](lispworks.html)
+- [LispWorks](http://www.lispworks.com/downloads/index.html) - Maintained. [Articulate-lisp LispWorks article](./env:lispworks-setup.html)
 - [Allegro](http://www.franz.com/downloads/clp/survey ) - Maintained.
 
 
