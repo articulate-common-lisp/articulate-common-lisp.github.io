@@ -93,10 +93,10 @@ You can easily setup a project with Xach's [Quickproject](http://www.xach.com/li
 ```Commonlisp
 (ql:quickload "quickproject")
 (quickproject:make-project "~/quicklisp/local-projects/cl-yahoo-finance/"
-                           :depends-on '(drakma babel cl-csv yason url-rewrite
+                           :depends-on '(drakma babel cl-csv yason url-rewrite)
                            :author "Paul Nathan"
                            :license "LLGPL"
-                           :name "cl-yahoo-finance"))
+                           :name "cl-yahoo-finance")
 ```
 
 ```
@@ -106,6 +106,7 @@ package.lisp
 cl-yahoo-finance.asd
 cl-yahoo-fianance.lisp
 ```
+
  Any system you put in Quicklisp's "local-projects" is quickloadable:
 
 ```Commonlisp
