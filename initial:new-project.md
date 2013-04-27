@@ -22,7 +22,6 @@ A one-file project has these characteristics:
 - Relatively common
 - An example is the [web-trotter](src/web-trotter.lisp) program.
 
-
 # Introduction to ASDF
 
 ASDF, also known as Another System Definition Facility, is the modern
@@ -85,3 +84,33 @@ integrates with Quicklisp such that I can `(ql:quickload
 - ASDF heavily used
 - Quicklisp heavily used
 - Packages, Systems, O My
+
+
+# Quickproject
+
+You can easily setup a project with Xach's [Quickproject](http://www.xach.com/lisp/quickproject/).
+
+```Commonlisp
+(ql:quickload "quickproject")
+(quickproject:make-project "~/quicklisp/local-projects/cl-yahoo-finance/"
+                           :depends-on '(drakma babel cl-csv yason url-rewrite)
+                           :author "Paul Nathan"
+                           :license "LLGPL"
+                           :name "cl-yahoo-finance")
+```
+
+```
+$ ls ~/quicklisp/local-projects/cl-yahoo-finance/
+README.txt
+package.lisp
+cl-yahoo-finance.asd
+cl-yahoo-fianance.lisp
+```
+
+ Any system you put in Quicklisp's "local-projects" is quickloadable:
+
+```Commonlisp
+(ql:quickload :cl-yahoo-finance)
+```
+
+Happy hacking!
