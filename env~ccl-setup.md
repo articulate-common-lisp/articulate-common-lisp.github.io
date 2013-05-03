@@ -10,16 +10,14 @@ Installing
 I'll defer to their instructions for
 [installation](http://ccl.clozure.com/download.html).
 
-Of particular interest is that it works on the PPC and ARM
-architectures; this can be of use to embedded system developers. It is
-possible to get [CCL working on the Rasperry
-Pi](http://lispm.dyndns.org/ccl), for instance.
+Of particular interest is that it works on the PPC and ARM architectures; this
+can be of use to embedded system developers. It is possible to get
+[CCL working on the Rasperry Pi](http://lispm.dyndns.org/ccl), for instance.
 
-CCL is particularly well-developed on Mac OS X, including a Cocoa
-bridge and an IDE.
+CCL is particularly well-developed on Mac OS X, including a Cocoa bridge and an
+IDE. It's also a good choice on Windows as it supports native (Win32) threads.
 
-In general, like SBCL, it's designed to be used as the backend to an
-IDE
+In general, like SBCL, it's designed to be used as the backend to an IDE.
 
 Note that each platform has a *different* CCL executable.
 
@@ -27,7 +25,7 @@ Note that each platform has a *different* CCL executable.
 
 * OSX:
 
-* Windows:
+* Windows: wx86cl.exe, wx86cl64.exe
 
 
 Linedit
