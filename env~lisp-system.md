@@ -40,7 +40,7 @@ Tabulation  of systems
 Name  Base   Notes
 ----  ----   -------
 SBCL  Native High speed compiler
- CCL  Native High speed compiler, good on OSX
+ CCL  Native High speed compiler, good on OSX and Windows
  LW   Native Professional platform
  ACL  Native Professional platform
 ABCL  JVM    Java interop
