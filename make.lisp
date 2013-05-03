@@ -143,13 +143,13 @@
                    (aref candidate-value 0))))
            path-list)))
 
-(defun find-markdowns (path-list)
+(defun find-htmls (path-list)
   (remove nil
           (mapcar
            #'(lambda (path)
                        (multiple-value-bind
                            (filename part)
-                           (cl-ppcre:scan-to-strings "\(\.+\).md$" path)
+                           (cl-ppcre:scan-to-strings "\(\.+\).html$" path)
                          filename))
            path-list)))
 
@@ -170,15 +170,19 @@
 (defun build-files ()
   (build-git-hash-file)
   (loop for file in (find-file-prefixes (ls))
-        do
-           (format t "~&articulating ~a into the final form...~&" file)
-           (build-a-file file))
-  (when (find :unix *features*)
-    (dolist (file (find-markdowns (ls)))
-      (external-program:run "cp" (list file
-                                       (cl-ppcre:regex-replace-all
-                                        "~"
-                                        file
-                                        ":")) )))
+     do
+       (format t "~&articulating ~a into the final form...~&" file)
+       (build-a-file file)
+       ;; Convert to `:` format when on Unix, i.e., a build machine.
+       (when (find :unix *features*)
+	 (let ((args (list (format nil "site/~a.html" file)
+				     (format nil "site/~a.html"
+					     (cl-ppcre:regex-replace-all
+					      "~"
+					      file
+					      ":")))))
+		 (external-program:run "cp" args))))
+
   (format t "~&final reticulation...~&")
-  (external-program:run "cp" '("-r" "src" "site/") ))
+  ;; Get the static content over.
+  (external-program:run "cp" '("-r" "src" "site/")))
