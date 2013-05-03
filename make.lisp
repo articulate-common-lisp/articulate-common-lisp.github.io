@@ -48,7 +48,7 @@
 </div>" hash))))
 
 (defun determine-name (fn)
-  (subseq fn (1+ (position #\: fn))))
+  (subseq fn (1+ (position #\~ fn))))
 
 (defun build-banner (active-filename file-list)
   (let ((initial-html
@@ -114,8 +114,8 @@
 
     (loop for filename in prefix-list
           do
-             (if (position #\: filename)
-                 (let ((tuple (split-sequence:split-sequence #\: filename)))
+             (if (position #\~ filename)
+                 (let ((tuple (split-sequence:split-sequence #\~ filename)))
                    (setf (gethash (first tuple) dropdown-table (list))
                          (append
                           (gethash (first tuple) dropdown-table (list))
@@ -173,5 +173,12 @@
         do
            (format t "~&articulating ~a into the final form...~&" file)
            (build-a-file file))
+  (when (find :unix *features*)
+    (dolist (file (find-markdowns (ls)))
+      (external-program:run "cp" (list file
+                                       (cl-ppcre:regex-replace-all
+                                        "~"
+                                        file
+                                        ":")) )))
   (format t "~&final reticulation...~&")
   (external-program:run "cp" '("-r" "src" "site/") ))
