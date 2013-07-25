@@ -100,7 +100,7 @@ Popular libraries that the author have not used include:
 
 * log5 - a log facility
 
-* parentscript - a CL -> javascript emitter
+* parenscript - a CL -> javascript emitter
 
 * lparallel  - a library for parallel programming
 
