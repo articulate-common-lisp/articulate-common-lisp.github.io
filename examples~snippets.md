@@ -27,21 +27,47 @@ written.
 
 ### Defining a class
 
+
+Note that DEFCLASS accessor functions for slots can be SETF'd and serve as both getters and setters for the slot.
+
+:INITARG is the keyword used in MAKE-INSTANCE to denote the value of the initial argument (see below).
+
+:INITFORM is the form used to initialize the slot. Without this, it defaults to `nil`. I favor using nil, 0, "", or 
+`(error "You must set slot <slotname> to a value")` as the usual initform set.
+
+Note that `(:documentation ...)` is the standard documentation mechanism, which can be vuew in the running image with 
+DESCRIBE (at least in SBCL).
+
 ~~~~Commonlisp
-(defclass my-class (list-of-superclasses) 
+
+;; no superclass, no slots.
+(defclass superclass-1 nil nil)
+
+(defclass my-class (superclass-1) 
   ((variable
       :accessor accessor-function
-      :initarg  :key-to-pass-in
-      :initform form-initialization)
-   Another-variable))
+      :initarg  :variable
+      :initform form-for-initializition.)
+   another-variable)
   (:documentation "a class snippet!"))
 ~~~~
+
 
 
 ### Creating an instance
 
 ~~~~Commonlisp
-(make-instance 'my-class :key-to-pass-in value)
+(make-instance 'my-class :variable value)
+~~~~
+
+
+### Adding a constructor 
+
+This function runs after the instance is initialized.
+
+~~~~Commonlisp
+(defmethod initialize-instance :after ((obj my-class) &key)
+  (setf (accessor-function obj) 10))
 ~~~~
 
 ### Defining a constant:
