@@ -31,12 +31,18 @@ written.
 (defclass my-class (list-of-superclasses) 
   ((variable
       :accessor accessor-function
-      :initarg  key-to-pass-in
+      :initarg  :key-to-pass-in
       :initform form-initialization)
    Another-variable))
   (:documentation "a class snippet!"))
 ~~~~
 
+
+### Creating an instance
+
+~~~~Commonlisp
+(make-instance 'my-class :key-to-pass-in value)
+~~~~
 
 ### Defining a constant:
 
