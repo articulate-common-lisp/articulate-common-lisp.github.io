@@ -25,6 +25,18 @@ written.
   )
 ~~~~
 
+### Defining a class
+
+~~~~Commonlisp
+(defclass my-class (list-of-superclasses) 
+  ((variable
+      :accessor accessor-function
+      :initarg  key-to-pass-in
+      :initform form-initialization)
+   Another-variable))
+  (:documentation "a class snippet!"))
+~~~~
+
 
 ### Defining a constant:
 
