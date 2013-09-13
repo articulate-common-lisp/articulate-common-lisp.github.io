@@ -12,6 +12,7 @@ written.
 
 ~~~~Commonlisp
 (defun function-name (param1 param2 &key (keyword1 default-value))
+    ;; keywords are optional; optional positional parameters are also available. 
     ;; implicit progn
   )
 ~~~~
@@ -20,7 +21,7 @@ written.
 
 
 ~~~~Commonlisp
-(defmethod method-name ((object class-name)
+(defmethod method-name ((param1 class-name))
    ;; implicit progn
   )
 ~~~~
@@ -107,6 +108,9 @@ are my favorite LOOPs
 
 (loop for i from 0 upto 10
    collect i)
+   
+(loop for i from 0 below 10
+   collect i)
 
 (loop for i from 0 upto 10
    do
@@ -116,7 +120,7 @@ are my favorite LOOPs
    collect
       (operate-on ele))
 
-(loop for ele in list
+(loop for ele across array
    collect
       (operate-on ele))
 ~~~~
@@ -126,13 +130,13 @@ are my favorite LOOPs
 The lambda functions is an anonymous function, i.e., unnamed.
 
 Here we map over `numeric-list` and increment each element in it by 1
-with `INCF`, returning the incremented list.
+with `1+`, returning the incremented list.
 
 ~~~~Commonlisp
 
 (mapcar
    #'(lambda (x)
-       (incf x))
+       (1+ x))
    numeric-list)
 
 ~~~~
@@ -156,6 +160,8 @@ for details on this very useful form.
 
 ### Writing a text file
 
+More complete reading and writing of text files can be done by using the ALEXANDRIA library; these
+routines are great for starting to customize your own routine.
 
 ```Commonlisp
 (defun write-file (filename data)
