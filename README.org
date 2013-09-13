@@ -48,3 +48,30 @@ Please pull off the top of the `devel` branch for your contributions and use git
 My home Jenkins instance deploys that branch out to articulate-lisp.com/devel. This allows me to merge your PR and 
 see the result quickly without being at a development machine: e.g., I can use my mobile phone to merge your work and 
 keep the awesome flowing as fast as possible. 
+
+** License information & legalities.
+
+My opinion on articulate-lisp.com's licencing is this: it should be easy to grab bits and pieces and easy to fork if
+the author disappears. After some careful reading, I selected...
+
+- GPL3 for the documentation itself. 
+
+- Snippets and other samples embedded in the documentation should be considered public domain a.k.a CC0.
+
+- The full-size examples in src/ are more substantial and, are licensed as AGPL3. This is denoted in their comment header.
+
+I do not believe that these terms are onerous and I have sought to structure them to permit both free use of small things
+and continuity of information. 
+
+AGPL3 is a very strict copyleft license and I feel obligated to justify its choice. 
+
+Simply put, I believe that software developers have a moral obligation to allow their users to repair the software that
+they provide. This facility is usual for physical items: we can fix our bikes, chairs, cars, etc. I believe that we
+ought to let our users fix the software they use, or hire other people to make that fix. I also have profound issues with
+the software patent industry. AGPL3 is the best license I know of to ensure that what I create gives users these 
+capabilities and will not be patented. As these are ridiculously small examples, I am fairly positive that any 
+serious work will not use them. So it should not be onerous on you.
+
+If your corporate lawyers refuse to let example AGPL3 code exist in your development environment, please write in and - 
+for my part - I will make a good faith effort to negotiate with you for you a less strict license for your company. And I 
+will doubtlessly say rude things about lawyers.
