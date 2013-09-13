@@ -29,15 +29,15 @@ written.
 ### Defining a class
 
 
-Note that DEFCLASS accessor functions for slots can be SETF'd and serve as both getters and setters for the slot.
+Note that `DEFCLASS` accessor functions for slots can be `SETF`'d and serve as both getters and setters for the slot.
 
-:INITARG is the keyword used in MAKE-INSTANCE to denote the value of the initial argument (see below).
+`:INITARG` is the keyword used in `MAKE-INSTANCE` to denote the value of the initial argument (see below).
 
-:INITFORM is the form used to initialize the slot. Without this, it defaults to `nil`. I favor using nil, 0, "", or 
+`:INITFORM` is the form used to initialize the slot. Without this, it defaults to `nil`. I favor using `nil`, `0`, `""`, or 
 `(error "You must set slot <slotname> to a value")` as the usual initform set.
 
-Note that `(:documentation ...)` is the standard documentation mechanism, which can be vuew in the running image with 
-DESCRIBE (at least in SBCL).
+Note that `(:documentation ...)` is the standard documentation mechanism, which can be viewed in the running image with 
+`DESCRIBE` (at least in SBCL).
 
 ~~~~Commonlisp
 
