@@ -103,7 +103,7 @@
                  (loop for filename in (gethash toplevel dropdowns)
                        collect
                        (let ((html-filename (format nil "./~a:~a.html" toplevel filename)))
-                         (format nil "<li><a href=\"~a\">~a</a></li>" html-filename filename)))
+                         (format nil "<li><a onclick="mixpanel.track("File Hit:~a");"  href=\"~a\">~a</a></li>" html-filename html-filename filename)))
                  (list
                   (format nil "~%</ul>~%</li>~%")))))
          (list final-html)))))))
