@@ -20,6 +20,6 @@ Happy hacking!
 
 *Credit*
 
-* Analytics by [Quantcast](https://www.quantcast.com/)
+* Analytics by [Quantcast](https://www.quantcast.com/), [MixPanel](http://mixpanel.com)
 
 * Theme by [Twitter Bootstrap](http://twitter.github.com/bootstrap/)
