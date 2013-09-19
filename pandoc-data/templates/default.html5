@@ -47,6 +47,17 @@ $endfor$
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="site/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="site/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="site/ico/apple-touch-icon-57-precomposed.png">
+
+<script>
+(function(){
+var ABTastyAccID = "f85bdca929d30e9507c1898206b0089e";
+var ABTastyTimeout = 2000;
+var ABTastyIP = "";
+
+if("undefined"!==typeof sessionStorage&&"undefined"!==typeof sessionStorage.ABTastyFrameworkCode&&0!=sessionStorage.ABTastyPagesViewed%5)sessionStorage.ABTastyPagesViewed++,"undefined"===typeof sessionStorage.ABTastyDontRun&&eval(sessionStorage.ABTastyFrameworkCode);else{if("undefined"!==typeof sessionStorage&&(void 0==sessionStorage.ABTastyPagesViewed?sessionStorage.ABTastyPagesViewed=0:sessionStorage.ABTastyPagesViewed++,"undefined"!==typeof sessionStorage.ABTastyDontRun))return;var b=(new Date).getTime(),c=document.getElementsByTagName("head")[0],a=document.createElement("script");a.setAttribute("type","text/javascript");a.setAttribute("async","true");a.setAttribute("src","//d1447tq2m68ekg.cloudfront.net/"+ABTastyAccID+".js");/MSIE [678]/.test(window.navigator.userAgent)||(window.stopABTastyAutorun=!0,a.onload=function(){var a=(new Date).getTime()-b;"undefined"!==typeof ABTastyFrameworkCode&&"undefined"!==typeof sessionStorage&&(sessionStorage.ABTastyFrameworkCode=ABTastyFrameworkCode);a>ABTastyTimeout?"undefined"!==typeof sessionStorage&&(sessionStorage.ABTastyDontRun="true"):"undefined"!==typeof ABTastyFrameworkCode&&eval(ABTastyFrameworkCode)});c.appendChild(a)}
+})();
+</script>
+
 </head>
 <body>
   <script src="js/jquery.js"></script>
