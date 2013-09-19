@@ -2,7 +2,8 @@
                 :external-program
                 :osicat
                 :alexandria
-                :split-sequence))
+                :split-sequence
+                :local-time))
 
 (use-package :cl-ppcre)
 
@@ -44,8 +45,11 @@
               "~&<div>~%
 <center style=\"font-size=x-small; color:lightgrey\">
  ~%version: ~a~%
+ ~%time built: ~a~%
 </center>~%
-</div>" hash))))
+</div>"
+              hash
+              (local-time:now)))))
 
 (defun determine-name (fn)
   (subseq fn (1+ (position #\~ fn))))
