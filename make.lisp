@@ -44,7 +44,7 @@
       (format stream
               "~&<div>~%
 <center style=\"font-size=x-small; color:lightgrey\">
- ~%version: ~a~%
+ ~%version: ~a~%<br>~%
  ~%time built: ~a~%
 </center>~%
 </div>"
