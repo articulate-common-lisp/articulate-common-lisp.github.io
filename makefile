@@ -3,7 +3,7 @@
 all: sbcl
 
 sbcl:
-        sbcl --non-interactive  --load make.lisp --eval '(build-files)'
+	sbcl --non-interactive  --load make.lisp --eval '(build-files)'
 
 ccl:
-        lx86cl64 -l make.lisp  -e '(build-files)'
+	lx86cl64 -l make.lisp  -e '(build-files)'
