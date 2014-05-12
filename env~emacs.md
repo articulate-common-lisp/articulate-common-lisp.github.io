@@ -30,8 +30,8 @@ Usually you want to get SLIME installed for your development.
 If you're using emacs23, SLIME can be found
 [here](http://www.common-lisp.net/project/slime/).
 
-Emacs24 has it in its package manager (`M-x package-list-packages`). However, I
-have not had good experiences with the SLIME found in the Marmalade emacs repo.
+Emacs24 has it in its package manager (`M-x
+package-list-packages`).
 
 
 I like to use the following elisp to configure SLIME:
@@ -49,7 +49,7 @@ I like to use the following elisp to configure SLIME:
 (setq slime-net-coding-system 'utf-8-unix)
 ```
 
-Another useful trick is:
+Another useful tool is:
 
 ```
 ;; highlight parens
@@ -73,6 +73,7 @@ editing features that surprised him on first use.
 When you have configured your SLIME in a `fancy` fashion, you will find a SLIME
 REPL (Read Evaluate Print Loop) buffer created in your Emacs window.
 
-This provides an interactive view into Common Lisp. You can evaluate functions you
-are writing in the source file and immediately use them in the REPL. This provides a
-very fast "code and test" facility.
+This provides an interactive view into Common Lisp. You can evaluate
+functions you are writing in the source file and immediately use them
+in the REPL. This provides a very fast "code and test" facility.
+p

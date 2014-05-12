@@ -179,13 +179,13 @@
        (build-a-file file)
        ;; Convert to `:` format when on Unix, i.e., a build machine.
        (when (find :unix *features*)
-	 (let ((args (list (format nil "site/~a.html" file)
-				     (format nil "site/~a.html"
-					     (cl-ppcre:regex-replace-all
-					      "~"
-					      file
-					      ":")))))
-		 (external-program:run "cp" args))))
+         (let ((args (list (format nil "site/~a.html" file)
+                                     (format nil "site/~a.html"
+                                             (cl-ppcre:regex-replace-all
+                                              "~"
+                                              file
+                                              ":")))))
+           (external-program:run "cp" args :error *standard-output*))))
 
   (format t "~&final reticulation...~&")
   ;; Get the static content over.

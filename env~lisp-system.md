@@ -34,9 +34,9 @@ limited-functionality personal editions. This author has
 had good experiences with LispWorks Personal Edition; it has limitations
 on its use, however.
 
-Mobile developers may find [mocl](https://wukix.com/mocl) a very interesting
-product in this space; it is a recently (2013) released Common Lisp system designed
-for interoperation with the base systems.
+Mobile developers may find [mocl](https://wukix.com/mocl) a very
+interesting product in this space; it is a recently (2013) released
+Common Lisp system designed for interoperation with the base systems.
 
 Tabulation  of systems
 ---
@@ -49,4 +49,4 @@ SBCL  Native High speed compiler
  ACL  Native Professional platform
 ABCL  JVM    Java interop
  ECL  C      C interop, has iOS port
-MOCL  Native Stores CL as a library for mobile devices - iOS & Android 
+MOCL  Native Stores CL as a library for mobile devices - iOS & Android
