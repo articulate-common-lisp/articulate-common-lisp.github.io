@@ -4,7 +4,7 @@
 
 We are going to assume that your first project is a small standalone
 program using one of the common libraries for Common Lisp. Since
-Common Lisp is a general purpose high-level programming langugage, it
+Common Lisp is a general purpose high-level programming language, it
 can handle any common high-level language task.
 
 Common libraries are installed using [Quicklisp][Quicklisp]!

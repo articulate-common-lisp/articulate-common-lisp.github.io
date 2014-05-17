@@ -16,7 +16,7 @@ fill out the form, and download it.
 
 It installs in the usual way for an OSX or Windows application.
 
-The user is recomended to review the LispWorks manual for operation of
+The user is recommended to review the LispWorks manual for operation of
 the system.
 
 Notes
