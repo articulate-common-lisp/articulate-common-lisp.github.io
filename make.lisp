@@ -166,9 +166,13 @@
     (write-sequence (build-banner filename (find-file-prefixes (ls)))
                     stream))
 
-  (external-program:run
-   "pandoc"
-   (generate-command filename)))
+(let ((error?  (with-output-to-string (s)
+           (external-program:run
+            "pandoc"
+            (generate-command filename)
+            :error s))))
+  (when error?
+    (format t "~&Oh no, a Thing appeared and ate the pandoc generator, leaving this note - ~a~%" error?))))
 
 
 (defun build-files ()

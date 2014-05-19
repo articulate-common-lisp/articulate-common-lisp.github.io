@@ -45,7 +45,7 @@ minibuffer. If you instead run `C-cC-j`, SLIME copies the form into
 the REPL and executes it. And, if you run `M-x
 slime-eval-print-last-expression`, then the expression will be
 evaluated and printed out into your executing buffer. This is very
-handy for scratch calculations and experimentation[1].
+handy for scratch calculations and [experimentation](1).
 
 If you're working with large amounts of data, then the dynamic
 variables at global scope `*print-length*` and `*print-depth*` are
