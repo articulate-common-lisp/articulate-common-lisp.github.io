@@ -51,7 +51,7 @@ keep the awesome flowing as fast as possible.
 
 ** License information & legalities.
 
-My opinion on articulate-lisp.com's licencing is this: it should be easy to grab bits and pieces and easy to fork if
+My opinion on articulate-lisp.com's licensing is this: it should be easy to grab bits and pieces and easy to fork if
 the author disappears. After some careful reading, I selected...
 
 - GPL3 for the documentation itself. 
