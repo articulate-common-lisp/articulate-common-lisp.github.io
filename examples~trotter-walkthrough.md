@@ -1,4 +1,4 @@
-% Trotter Walkthough
+% Trotter Walkthrough
 %
 %
 
@@ -49,7 +49,7 @@ the URL.
 ```
 
 
-Next, a predicte to check to see if our data is ASCII. While Common
+Next, a predicate to check to see if our data is ASCII. While Common
 Lisp can handle Unicode data, this is a sample program, and the
 complexities of Unicode can be deferred.
 
@@ -120,7 +120,7 @@ Lisp condition system; it serves as the "try" block in this
 situation. The list of errors below form the "catch" blocks. The
 interested reader is referred to [the quicklinks
 section](quicklinks.html) for more resources. Note that the errors are
-typical network errors- timouts, stream errors, encoding errors.
+typical network errors- timeouts, stream errors, encoding errors.
 
 The first form in `HANDLER-CASE` requests in the url and assigns it to
 page.  Supposing we got something, we make sure it's an ascii page; if
@@ -128,7 +128,7 @@ so, we then find all the url-ish looking things, using the previously
 defined global. Supposing that the page is, indeed, a string, we
 return it, otherwise we convert the octets to a string and return
 that. N.b.: Common Lisp makes a difference between strings and vectors
-of bytes.  Of course, if an error occured, the `HANDLER-CASE` will
+of bytes.  Of course, if an error occurred, the `HANDLER-CASE` will
 route to the known conditions.
 
 Note that in one case, `#+sbcl` is present; this is a Common Lisp

@@ -12,7 +12,7 @@ I'll defer to their instructions for
 
 Of particular interest is that it works on the PPC and ARM architectures; this
 can be of use to embedded system developers. It is possible to get
-[CCL working on the Rasperry Pi](http://lispm.dyndns.org/ccl), for instance.
+[CCL working on the Raspberry Pi](http://lispm.dyndns.org/ccl), for instance.
 
 CCL is particularly well-developed on Mac OS X, including a Cocoa bridge and an
 IDE. It's also a good choice on Windows as it supports native (Win32) threads.

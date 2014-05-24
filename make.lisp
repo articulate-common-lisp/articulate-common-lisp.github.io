@@ -166,9 +166,13 @@
     (write-sequence (build-banner filename (find-file-prefixes (ls)))
                     stream))
 
-  (external-program:run
-   "pandoc"
-   (generate-command filename)))
+(let ((error?  (with-output-to-string (s)
+           (external-program:run
+            "pandoc"
+            (generate-command filename)
+            :error s))))
+  (when error?
+    (format t "~&Oh no, a Thing appeared and ate the pandoc generator, leaving this note - ~a~%" error?))))
 
 
 (defun build-files ()
@@ -179,13 +183,13 @@
        (build-a-file file)
        ;; Convert to `:` format when on Unix, i.e., a build machine.
        (when (find :unix *features*)
-	 (let ((args (list (format nil "site/~a.html" file)
-				     (format nil "site/~a.html"
-					     (cl-ppcre:regex-replace-all
-					      "~"
-					      file
-					      ":")))))
-		 (external-program:run "cp" args))))
+         (let ((args (list (format nil "site/~a.html" file)
+                                     (format nil "site/~a.html"
+                                             (cl-ppcre:regex-replace-all
+                                              "~"
+                                              file
+                                              ":")))))
+           (external-program:run "cp" args :error *standard-output*))))
 
   (format t "~&final reticulation...~&")
   ;; Get the static content over.

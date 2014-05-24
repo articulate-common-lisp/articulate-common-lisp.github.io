@@ -1,16 +1,10 @@
-% articulate-common-lisp
+% Articulate Common Lisp
 %
 %
 
-how to write Common Lisp in 2013
+how to write Common Lisp in 2014
 
 an initiation manual for the uninitiated
-
-```
-(initialize-new-lisper 'YOU)
-
-```
-
 
 ---
 

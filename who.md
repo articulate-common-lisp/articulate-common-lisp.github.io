@@ -2,8 +2,7 @@
 %
 %
 
-articulate-lisp.com is designed to fill a gap in the current (2012,
-2013) resources for getting started with Common Lisp. It's the work of
+articulate-lisp.com is designed to fill a gap in the current (2012-2014) resources for getting started with Common Lisp. It's the work of
 one person (Paul Nathan) so far, and represents his best efforts and
 knowledge at this point in time.
 
@@ -20,6 +19,6 @@ Happy hacking!
 
 *Credit*
 
-* Analytics by [Quantcast](https://www.quantcast.com/)
+* Analytics by [Quantcast](https://www.quantcast.com/), [MixPanel](http://mixpanel.com), and Google. 
 
 * Theme by [Twitter Bootstrap](http://twitter.github.com/bootstrap/)

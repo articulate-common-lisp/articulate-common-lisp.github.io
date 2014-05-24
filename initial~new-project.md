@@ -25,7 +25,7 @@ A one-file project has these characteristics:
 # Introduction to ASDF
 
 ASDF, also known as Another System Definition Facility, is the modern
-way for defining Common Lisp libaries. It is fully supported by
+way for defining Common Lisp libraries. It is fully supported by
 Quicklisp, and supports adding your own private libraries.
 
 
@@ -62,7 +62,7 @@ Here is a copy of the contents a library's ASD file:
   :version "3.3"
   :maintainer "Paul Nathan"
   :author "Paul Nathan"
-  :licence "LLGPL"
+  :license "LLGPL"
   :description "CL interface to Yahoo's finance API"
   :long-description "Common Lisp interface to Yahoo's finance API, available over the web. See usage.lisp for example code.")
 ```
@@ -104,7 +104,7 @@ $ ls ~/quicklisp/local-projects/cl-yahoo-finance/
 README.txt
 package.lisp
 cl-yahoo-finance.asd
-cl-yahoo-fianance.lisp
+cl-yahoo-finance.lisp
 ```
 
  Any system you put in Quicklisp's "local-projects" is quickloadable:

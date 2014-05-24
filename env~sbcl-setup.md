@@ -3,11 +3,11 @@
 %
 
 Steel Bank Common Lisp (SBCL) is aggressively maintained with releases
-approximately monthly as of 2012. SBCL has a long history, with its
-source code stretching back to the early '80s under different
-systems. This tutorial recommends SBCL due to its popularity at the time
-of writing. Other opens source systems such as ECL, CLISP, CMUCL, and
-CCL exist.
+approximately monthly. SBCL has a long history, with its source code
+stretching back to the early '80s under different systems. This
+tutorial recommends SBCL due to its popularity at the time of
+writing. Other opens source systems such as ECL, CLISP, CMUCL, and CCL
+exist.
 
 Installing on Linux and OSX
 ---
@@ -53,11 +53,11 @@ Dear Windows SBCL user, please tell us how it's done!
 
 Further installation on Linux/OSX
 ---
-Sometimes the SBCL you pick up from sbcl.org isn't as feature-complete 
-as you want, or perhaps you want to recompile it for your own reasons 
+Sometimes the SBCL you pick up from sbcl.org isn't as feature-complete
+as you want, or perhaps you want to recompile it for your own reasons
 (i.e., the Hunchentoot web server requires threads).
 
-In order to do this, download the *source* SBCL package and issue this 
+In order to do this, download the *source* SBCL package and issue this
 set of commands:
 
 ```Bash
@@ -66,9 +66,9 @@ pushd doc/manual/ && make && popd
 sudo sh ./install.sh
 ```
 
-* --fancy builds with several optional features as of 1.1.3: 
-  :sb-core-compression :sb-xref-for-internals :sb-after-xc-core, plus 
+* --fancy builds with several optional features as of 1.1.3:
+  :sb-core-compression :sb-xref-for-internals :sb-after-xc-core, plus
   threading on supported platforms.
 
-* For platforms with very limited memory, --dynamic-space-size=<MB> 
+* For platforms with very limited memory, --dynamic-space-size=<MB>
   can help ensure that you don't blow the internal Lisp heap.

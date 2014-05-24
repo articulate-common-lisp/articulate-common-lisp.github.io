@@ -31,7 +31,7 @@ but boot faster. One common deployment strategy involves saving a
 preloaded *image* and executing it on demand.
 
 
-Most Lisp work is done within the Emacs/SLIME mileau; however,
+Most Lisp work is done within the Emacs/SLIME milieu; however,
 IDE's like LispWorks or Allegro Common Lisp offer similar
 functionality.
 
@@ -104,7 +104,7 @@ Popular libraries that the author have not used include:
 
 * lparallel  - a library for parallel programming
 
-* usocket - TCP socket libary
+* usocket - TCP socket library
 
 
 For snippets and code samples, please see the Snippets in the Examples
