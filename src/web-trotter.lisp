@@ -25,31 +25,19 @@
 	   (return-from ascii-p nil))))
   t)
 
-
-(defun known-binary (url)
-  "Given a URL, returns a truthy value if its a binary.
-
-A poor way to determine if we want to go grab something for link
-examination. Really needs to be a regex or a smart substring chop."
-  (or (search ".png" url)
-       (search ".bmp" url)
-       (search ".jpg" url)
-       (search ".exe" url)
-       (search ".dmg" url)
-       (search ".package" url)
-       (search ".css" url)
-       (search ".ico" url)
-       (search ".gif" url)
-       (search ".dtd" url)
-       (search ".pdf" url)
-       (search ".xml" url)
-       (search ".tgz" url))
-)
+(defun known-binary-p (url)
+	"Is this url a binary file?"
+	(let ((binaries
+			  '(".png" ".bmp" ".jpg" ".exe" ".dmg" ".package" ".css"
+				   ".ico" ".gif" ".dtd" ".pdf" ".xml" ".tgz")))
+		(dolist (b binaries NIL)
+			(when (search b url)
+				(return T)))))
 
 (defun find-links (url)
   "Scrapes links from a URL. Prints to STDOUT if an error is caught"
   (when (and (http-p url)
-	     (not (known-binary url)))
+	     (not (known-binary-p url)))
     (handler-case
 	(let ((page (drakma:http-request url)))
 	  (when page
