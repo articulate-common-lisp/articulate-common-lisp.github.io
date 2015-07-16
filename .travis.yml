@@ -1,7 +1,7 @@
 sudo: false
 addons:
   apt:
-    sources:
+    packages:
     - pandoc
 before_script:
 - curl -O -L http://prdownloads.sourceforge.net/sbcl/sbcl-1.2.6-x86-64-linux-binary.tar.bz2
