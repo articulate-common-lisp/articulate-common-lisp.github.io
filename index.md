@@ -38,7 +38,6 @@ Happy Hacking,
 
 P.S.: feel free to contact me for anything you like.
 
-
 ---
 
 * Set up your [lisp system](./env:lisp-system.html).

@@ -166,13 +166,13 @@
     (write-sequence (build-banner filename (find-file-prefixes (ls)))
                     stream))
 
-(let ((error?  (with-output-to-string (s)
-           (external-program:run
-            "pandoc"
-            (generate-command filename)
-            :error s))))
-  (when error?
-    (format t "~&Oh no, a Thing appeared and ate the pandoc generator, leaving this note - ~a~%" error?))))
+  (let ((error?  (with-output-to-string (s)
+                   (external-program:run
+                    "pandoc"
+                    (generate-command filename)
+                    :error s))))
+    (when (string/= ""  error?)
+      (format t "~&Oh no, a Thing appeared and ate the pandoc generator, leaving this note - ~a~%" error?))))
 
 
 (defun build-files ()
@@ -189,7 +189,7 @@
                                               "~"
                                               file
                                               ":")))))
-           (external-program:run "cp" args :error *standard-output*))))
+           (external-program:run "mv" args :error *standard-output*))))
 
   (format t "~&final reticulation...~&")
   ;; Get the static content over.
