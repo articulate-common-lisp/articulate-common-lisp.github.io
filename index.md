@@ -2,7 +2,7 @@
 %
 %
 
-how to write Common Lisp in 2014
+how to write Common Lisp in 2015
 
 an initiation manual for the uninitiated
 
