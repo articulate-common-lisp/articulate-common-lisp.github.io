@@ -4,6 +4,6 @@ before_script:
 - pushd sbcl-1.2.6-x86-64-linux/ && sudo bash install.sh && popd
 - curl -O -L http://beta.quicklisp.org/quicklisp.lisp
 - sbcl --load quicklisp.lisp --eval '(quicklisp-quickstart:install)' --eval '(quit)'
-- apt-get install -y pandoc
+- sudo apt-get install -y pandoc
 script:
 - make
