@@ -1,4 +1,4 @@
-# sudo: false
+sudo: false
 addons:
   apt:
     sources:
@@ -6,8 +6,8 @@ addons:
 before_script:
 - curl -O -L http://prdownloads.sourceforge.net/sbcl/sbcl-1.2.6-x86-64-linux-binary.tar.bz2
 - tar xjf sbcl-1.2.6-x86-64-linux-binary.tar.bz2
-- pushd sbcl-1.2.6-x86-64-linux/ && sudo bash install.sh && popd
+# - pushd sbcl-1.2.6-x86-64-linux/ && sudo bash install.sh && popd
 - curl -O -L http://beta.quicklisp.org/quicklisp.lisp
-- sbcl --load quicklisp.lisp --eval '(quicklisp-quickstart:install)' --eval '(quit)'
+- sbcl-1.2.6-x86-64-linux/run-sbcl.sh --load quicklisp.lisp --eval '(quicklisp-quickstart:install)' --eval '(quit)'
 script:
-- sbcl --script ./run-ci.sh
+- sbcl-1.2.6-x86-64-linux/run-sbcl.sh --script run-ci.sh
