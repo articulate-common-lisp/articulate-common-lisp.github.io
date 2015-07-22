@@ -63,25 +63,19 @@ complexities of Unicode can be deferred.
   t)
 ```
 
-Next, we have a *really sloppy* way to see if a URL is going to point
+Next, we have a quick (and dirty) way to see if a URL is going to point
 to a binary. It just looks for a binary file extension in the string.
 
 
 ```Commonlisp
-(defun known-binary (url)
-  (or (search ".png" url)
-       (search ".bmp" url)
-       (search ".jpg" url)
-       (search ".exe" url)
-       (search ".dmg" url)
-       (search ".package" url)
-       (search ".css" url)
-       (search ".ico" url)
-       (search ".gif" url)
-       (search ".dtd" url)
-       (search ".pdf" url)
-       (search ".xml" url)
-       (search ".tgz" url)))
+(defun known-binary-p (url)
+	"Is this url a binary file?"
+	(let ((binaries
+			  '(".png" ".bmp" ".jpg" ".exe" ".dmg" ".package" ".css"
+				   ".ico" ".gif" ".dtd" ".pdf" ".xml" ".tgz")))
+		(dolist (b binaries NIL)
+			(when (search b url)
+				(return T)))))
 ```
 
 The next form is the most complex: `find-links`.
@@ -93,7 +87,7 @@ The next form is the most complex: `find-links`.
 (defun find-links (url)
   "Scrapes links from a URL. Prints to STDOUT if an error is caught"
   (when (and (http-p url)
-             (not (known-binary url)))
+             (not (known-binary-p url)))
     (handler-case
         (let ((page (drakma:http-request url)))
           (when page
