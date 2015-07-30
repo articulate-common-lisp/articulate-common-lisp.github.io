@@ -1,19 +1,19 @@
 # Jekyll configuration
 
-name: My blog
+name: articulate-lisp.com
 description: A jekyll theme
 
 # url is currently only used only for the RSS feed in feed.xml
-url: http://scotte.github.io
+url: http://articulate-lisp.com
 
 # baseurl will often be '', but for a project page on gh-pages, it needs to
 # be the project name.
 # *** IMPORTANT: If your local "jekyll serve" throws errors change this to '' or
 #     run it like so: jekyll serve --baseurl=''
-baseurl: /jekyll-clean
+baseurl: /
 
 # This can be '' to hide the Github nav button
-github: 'scotte/jekyll-clean'
+github: 'pnathan/articulate-common-lisp'
 
 # Set this to your UA-# value, or '' to disable the block completely
 gaaccount: ''

@@ -1,18 +1,29 @@
 body {
     padding-top: 60px;
     padding-bottom: 60px;
+    color: #000;
 }
 
 .copyright {
     color: #ffffff;
 }
 
+.navbar {
+    font-size: medium;
+}
+.navbar-inverse .navbar-nav >  li > a {
+    color: #54de61;
+}
+
 .footer {
+    color: #777777;
+    font-size: x-small;
     text-align: center;
 }
 
+
 .footer a {
-    color: #ee4444;
+    color: blue;
 }
 
 .sidebar h1 {
