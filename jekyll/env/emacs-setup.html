@@ -1,0 +1,37 @@
+---
+layout: default
+---
+
+<header>
+<h1 class="title">Emacs</h1>
+</header>
+<p>Emacs is <em>the</em> modern open source Lisp IDE. Its history and quirks extend back to the Lisp machines and early editors such as TECO.</p>
+<p>It is considered difficult to initially learn, and often disparaged due to the antiquated interface, but is generally thought the best open source free IDE for Common Lisp.</p>
+<p>In order to use emacs, there are two variants; XEmacs and GNU Emacs. I usually use GNU emacs, so I&#8217;ll talk about it here.</p>
+<p>In order to get it, you can obtain it from the <a href="http://www.gnu.org/software/emacs/">GNU</a>. Windows, Linux, and OSX versions are available. It&#8217;s also available via most Linux distributions package repositories. The most recent version is 24; 23 is also recent and works well with the Superior Lisp Interaction Mode for Emacs, a.k.a SLIME.</p>
+<p>New users can find many resources online for Emacs, including a well-written help system! An emacs tutorial can be found <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html">here</a>, and the GNU FAQ is also <a href="http://www.gnu.org/software/emacs/emacs-faq.text">available</a></p>
+<p>Usually you want to get SLIME installed for your development.</p>
+<p>If you&#8217;re using emacs23, SLIME can be found <a href="http://www.common-lisp.net/project/slime/">here</a>.</p>
+<p>Emacs24 has it in its package manager (<code>M-x package-list-packages</code>).</p>
+<p>I like to use the following elisp to configure SLIME:</p>
+<pre><code>(require &#39;cl)
+(setq inferior-lisp-program  &quot;/usr/local/bin/sbcl&quot;) ;modify to taste
+(require &#39;slime)
+(slime-setup &#39;(slime-fancy))    ;adds some nice features
+
+;; these give you unicode
+(set-language-environment &quot;UTF-8&quot;)
+(setenv &quot;LC_LOCALE&quot; &quot;en_US.UTF-8&quot;)
+(setenv &quot;LC_CTYPE&quot; &quot;en_US.UTF-8&quot;)
+(setq slime-net-coding-system &#39;utf-8-unix)</code></pre>
+<p>Another useful tool is:</p>
+<pre><code>;; highlight parens
+(require &#39;paren)
+(show-paren-mode t)
+</code></pre>
+<h2 id="once-you-are-set-up">Once you are set up&#8230;</h2>
+<p>When you load a Lisp file and want to engage SLIME, <code>M-x slime</code> will do the trick.</p>
+<p>Paredit is a popular Lisp editing mode that the engaged student will hear about. The author recommends getting comfortable with emacs and SLIME before using Paredit, it provides several automatic s-expression editing features that surprised him on first use.</p>
+<p>When you have configured your SLIME in a <code>fancy</code> fashion, you will find a SLIME REPL (Read Evaluate Print Loop) buffer created in your Emacs window.</p>
+<p>This provides an interactive view into Common Lisp. You can evaluate functions you are writing in the source file and immediately use them in the REPL. This provides a very fast &#8220;code and test&#8221; facility. p</p>
+<hr/>

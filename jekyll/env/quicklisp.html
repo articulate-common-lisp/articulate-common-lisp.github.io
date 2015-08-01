@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<h1 class="title">Quicklisp</h1>
+</header>
+<p><a href="http://www.quicklisp.org/beta/">Quicklisp</a> is <em>the</em> package management system for Common Lisp.</p>
+<ul>
+  <li><p>Initially, download quicklisp.lisp to a directory.</p></li>
+  <li><p>To install Quicklisp on SBCL, load up your <a href="sbcl-setup.html">SBCL</a> instance, loading Quicklisp with this command: <code>sbcl --load   quicklisp.lisp</code>, and follow the on-screen instructions.</p></li>
+  <li><p>To install Quicklisp on CCL, load up your <a href="ccl-setup.html">CCL</a> instance, loading Quicklisp with this command, <code>$ccl -l   quicklisp.lisp</code></p></li>
+  <li><p>If you are behind a proxy, use <code>(quicklisp-quickstart:install :proxy   &quot;http://your-proxy-here:1337&quot;)</code>, of course replacing the proxy information with your site proxy information.</p></li>
+  <li><p>Then, after the installation finishes, before you exit, run <code>(ql:add-to-init-file)</code>.</p></li>
+</ul>
+<p>The list of available packages is the <a href="http://www.quicklisp.org/beta/releases.html">Quicklisp Releases list</a>.</p>
+<p>Note that on LispWorks Personal Edition 6.1, Quicklisp does not load from the init file by default: run a <code>(LOAD &quot;~/.lispworks&quot;)</code> form on the REPL on initial bootup.</p>
+<hr/>

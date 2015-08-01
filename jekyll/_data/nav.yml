@@ -1,0 +1,54 @@
+- title: "Home"
+  href: "/"
+
+- title: "quicklinks"
+  href: "/quicklinks.html"
+
+
+- title: "Initial"
+  href: "/initial"
+  subcategories:
+    - subtitle: "New Project"
+      subhref: "/new-project.html"
+
+    - subtitle: "Basic Project"
+      subhref: "/basic-project.html"
+
+    - subtitle: "ABCs"
+      subhref: "/abcs.html"
+
+- title: "examples"
+  href: "/examples"
+  subcategories:
+    - subtitle: "Snippets"
+      subhref: "/snippets.html"
+    - subtitle: "trotter"
+      subhref: "/trotter.html"
+
+- title: "env"
+  href: "/env"
+  subcategories:
+    - subtitle: "IDE"
+      subhref: "/ide.html"
+    - subtitle: "Quicklisp"
+      subhref: "/quicklisp.html"
+    - subtitle: "CUSP"
+      subhref: "/cusp-setup.html"
+    - subtitle: "emacs"
+      subhref: "/emacs-setup.html"
+    - subtitle: "SLIME"
+      subhref: "/slime-setup.html"
+
+#- title: "Systems"
+#  href: "/env"
+#  subcategories:
+    - subtitle: "Clozure CL"
+      subhref: "/ccl-setup.html"
+    - subtitle: "SBCL"
+      subhref: "/sbcl-setup.html"
+    - subtitle: "LispWorks CL"
+      subhref: "/lispworks-setup.html"
+    - subtitle: "setup"
+      subhref: "/lisp-system.html"
+- title: "Who?"
+  href: "/about/"

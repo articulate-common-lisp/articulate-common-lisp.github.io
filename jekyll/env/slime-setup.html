@@ -1,0 +1,24 @@
+---
+layout: default
+---
+<header>
+<h1 class="title">SLIME</h1>
+</header>
+<p>One of Lisp&#8217;s biggest contributions to the world of software development is the idea of an interactive development environment. This was later taken up by other languages (Smalltalk et al) and continues to make inroads today.</p>
+<p>In this tutorial we&#8217;ll assume that you&#8217;ve configured your Lisp environment correctly and now are trying to write Lisp code (Congratulations)!</p>
+<p>Let&#8217;s say that you have your <code>emacs</code> and <code>SLIME</code> set up. Then, open a file and load our SLIME - run <code>M-x slime</code> when the file is opened. This will create a REPL buffer for you associated to the file.</p>
+<p>Here&#8217;s a function to put in the file (or write your own):</p>
+<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="kw">defun</span><span class="fu"> heads </span>(&amp;<span class="kw">rest</span> lists)
+  <span class="st">&quot;Gets the first elements of the lists&quot;</span>
+  (<span class="kw">mapcar</span> #&#39;car lists))</code></pre>
+<p>Then place the cursor in the function and keyboard in the combination <code>C-cC-c</code>.</p>
+<p>In my REPL window the annotation <code>; compiling (DEFUN HEADS ...)</code> appears. We then can run <code>heads</code> and see its output, just as if we had written heads on the prompt.</p>
+<p>Not only that, the SLIME REPL offers lookup of symbol completion based upon what exists in the Lisp image: typing <code>hea</code> and then <code>TAB</code> in the REPL will attempt to complete heads (or present you with a list of possible completions).</p>
+<p>I frequently use <code>M-x slime-eval-buffer</code> to reload everything in my file (just checking to ensure that it works correctly).</p>
+<p>Let&#8217;s invert this and use our actual file as a sort of REPL. Put an invocation of <code>heads</code> in your source file and run <code>C-xC-e</code> - this actually evaluates the form and outputs the result to the minibuffer. If you instead run <code>C-cC-j</code>, SLIME copies the form into the REPL and executes it. And, if you run <code>M-x slime-eval-print-last-expression</code>, then the expression will be evaluated and printed out into your executing buffer. This is very handy for scratch calculations and experimentation.</p>
+<p>If you&#8217;re working with large amounts of data, then the dynamic variables at global scope <code>*print-length*</code> and <code>*print-depth*</code> are very handy. When set to <code>nil</code>, then the length and recursive depth of data objects are printed to infinite length and depth; when given an integer, the Common Lisp printer obeys that integer as a limit on the length and depth of the printing.</p>
+<p>[1] P.s., an elisp snippet to make that command easier is:</p>
+<pre class="elisp"><code>(define-key slime-mode-map
+    &quot;\C-x\C-j&quot;
+    &#39;slime-eval-print-last-expression)</code></pre>
+<hr/>
