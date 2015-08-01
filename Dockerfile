@@ -1,2 +1,2 @@
 from nginx
-copy site/ /usr/share/nginx/html
+copy _site/ /usr/share/nginx/html
