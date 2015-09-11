@@ -16,31 +16,6 @@
     - subtitle: "ABCs"
       subhref: "/abcs.html"
 
-- title: "IDEs"
-  href: "/ides"
-  subcategories:
-    - subtitle: "Summary"
-      subhref: "/summary.html"
-    - subtitle: "Emacs"
-      subhref: "/emacs-setup.html"
-    - subtitle: "SLIME"
-      subhref: "/slime-setup.html"
-    - subtitle: "CUSP"
-      subhref: "/cusp-setup.html"
-    - subtitle: "LispWorks CL"
-      subhref: "/lispworks-setup.html"
-
-- title: "Libraries"
-  href: "/quicklisp.html"
-
-- title: "Examples"
-  href: "/examples"
-  subcategories:
-    - subtitle: "Snippets"
-      subhref: "/snippets.html"
-    - subtitle: "Trotter"
-      subhref: "/trotter.html"
-
 - title: "Implementations"
   href: "/implementations"
   subcategories:
@@ -55,6 +30,30 @@
     - subtitle: "LispWorks CL"
       subhref: "/lispworks-setup.html"
 
+- title: "IDEs"
+  href: "/ides"
+  subcategories:
+    - subtitle: "Summary"
+      subhref: "/summary.html"
+    - subtitle: "Emacs"
+      subhref: "/emacs-setup.html"
+    - subtitle: "SLIME"
+      subhref: "/slime-setup.html"
+    - subtitle: "CUSP"
+      subhref: "/cusp-setup.html"
+    - subtitle: "LispWorks CL"
+      subhref: "/lispworks-setup.html"
+
+- title: "Examples"
+  href: "/examples"
+  subcategories:
+    - subtitle: "Snippets"
+      subhref: "/snippets.html"
+    - subtitle: "Trotter"
+      subhref: "/trotter.html"
+
+- title: "Libraries"
+  href: "/quicklisp.html"
 
 - title: "Who?"
   href: "/about/"
