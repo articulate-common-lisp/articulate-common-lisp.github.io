@@ -16,8 +16,8 @@
     - subtitle: "ABCs"
       subhref: "/abcs.html"
 
-- title: "IDE"
-  href: "/ide"
+- title: "IDEs"
+  href: "/ides"
   subcategories:
     - subtitle: "Summary"
       subhref: "/summary.html"
@@ -25,6 +25,10 @@
       subhref: "/emacs-setup.html"
     - subtitle: "SLIME"
       subhref: "/slime-setup.html"
+    - subtitle: "CUSP"
+      subhref: "/cusp-setup.html"
+    - subtitle: "LispWorks CL"
+      subhref: "/lispworks-setup.html"
 
 - title: "Libraries"
   href: "/quicklisp.html"
@@ -42,14 +46,15 @@
   subcategories:
     - subtitle: "Summary"
       subhref: "/summary.html"
-    - subtitle: "CUSP"
-      subhref: "/cusp-setup.html"
     - subtitle: "Clozure CL"
       subhref: "/ccl-setup.html"
+    - subtitle: "CLISP"
+      subhref: "/clisp-setup.html"
     - subtitle: "SBCL"
       subhref: "/sbcl-setup.html"
     - subtitle: "LispWorks CL"
       subhref: "/lispworks-setup.html"
+
 
 - title: "Who?"
   href: "/about/"
