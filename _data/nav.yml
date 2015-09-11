@@ -4,8 +4,8 @@
 - title: "Quicklinks"
   href: "/quicklinks.html"
 
-- title: "Initial"
-  href: "/initial"
+- title: "Starting a Project"
+  href: "/project"
   subcategories:
     - subtitle: "New Project"
       subhref: "/new-project.html"
