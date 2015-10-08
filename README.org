@@ -8,7 +8,7 @@ docs/specs for a tutorial/introduction site for a Common Lisp environment
 
 One of the key problems in onboarding developers to use modern Common Lisp is the vertical wall of difficulty. Things that are routinely problematic:
 
-- emacs use. Most people don't use emacs. 
+- emacs use. Most people don't use emacs.
 
 - Library creation. Putting together ASDF libraries and using them is a fairly horrid experience the first time.
 
@@ -19,7 +19,7 @@ One of the key problems in onboarding developers to use modern Common Lisp is th
 
 This repository is the source code to build a Common Lisp site dedicated to handling these problems. My goal is to put together an introduction/tutorial for practicing professionals and hobbyists from other languages. People who want to get started with Lisp beyond just typing into a REPL.   Right now, it feels like this information is less disseminated and much less centralized than it otherwise might be.  It's not intended to be a HOWTO for Common Lisp. That's been covered *quite* well. But it is intended to be a HOWTO on how to put together a Lisp *environment*.
 
-Anyway, I'd like to collaborate with other people to build a remarkably fine Lisp help site.  Contributions are both *accepted* and *welcome*. It's a wholly static site at this point in time - I don't see a need for articulate-lisp.com to have a dynamic backend. Perhaps/probably one of the code examples will be a webapp. 
+Anyway, I'd like to collaborate with other people to build a remarkably fine Lisp help site.  Contributions are both *accepted* and *welcome*. It's a wholly static site at this point in time - I don't see a need for articulate-lisp.com to have a dynamic backend. Perhaps/probably one of the code examples will be a webapp.
 
 Happy Hacking,
 
@@ -30,48 +30,40 @@ P.S.: feel free to contact me for anything you like.
 
 ** Notes regarding build process.
 
-Various site building tools are out there; I wanted one that was, above all, simple. Initially Jekyll was chosen, 
-but Ruby proved contentious, and frankly, I wanted to ship the site. Pandoc was really easy to use and install on my
-OSX boxes. With a bit of hackery on the templates, I could generate a very nice page. With a bit more hackery,
-`make.lisp` got created, which included snippets automatically, as well as have a simplistic 1-level hierarchical 
-menu for sections of the site based on filename.  I use SBCL as the Lisp system for make.lisp.
+This is a Jekyll site; the existing build scripts use Dockerized
+Jekyll for sandboxing.
 
-You can see this in action in the makefile for the system.
-
-On the build side, the `master` branch is polled routinely by a Jenkins instance at home, which builds the site into 
-the "site" folder and then uploads it to the http://articulate-lisp.com host.  
+Unfortunately, I don't have autobuild yet set up to Docker build &&
+docker push, as that requires credentials and capabilities Travis
+doesn't have yet.4
 
 ** Contributions.
 
-Please pull off the top of the `devel` branch for your contributions and use github Pull Requests for contributing.
+Please send in pull requests!
 
-My home Jenkins instance deploys that branch out to articulate-lisp.com/devel. This allows me to merge your PR and 
-see the result quickly without being at a development machine: e.g., I can use my mobile phone to merge your work and 
-keep the awesome flowing as fast as possible. 
 
 ** License information & legalities.
 
 My opinion on articulate-lisp.com's licensing is this: it should be easy to grab bits and pieces and easy to fork if
 the author disappears. After some careful reading, I selected...
 
-- GPL3 for the documentation itself. 
+- GPL3 for the documentation itself.
 
 - Snippets and other samples embedded in the documentation should be considered public domain a.k.a CC0.
 
-- The full-size examples in src/ are more substantial and, are licensed as AGPL3. This is denoted in their comment header.
+- The full-size examples in examples/src/ are more substantial and, are licensed as AGPL3. This is denoted in their comment header.
 
 I do not believe that these terms are onerous and I have sought to structure them to permit both free use of small things
-and continuity of information. 
+and continuity of information.
 
-AGPL3 is a very strict copyleft license and I feel obligated to justify its choice. 
+AGPL3 is a very strict copyleft license and I feel obligated to justify its choice.
 
 Simply put, I believe that software developers have a moral obligation to allow their users to repair the software that
 they provide. This facility is usual for physical items: we can fix our bikes, chairs, cars, etc. I believe that we
 ought to let our users fix the software they use, or hire other people to make that fix. I also have profound issues with
-the software patent industry. AGPL3 is the best license I know of to ensure that what I create gives users these 
-capabilities and will not be patented. As these are ridiculously small examples, I am fairly positive that any 
+the software patent industry. AGPL3 is the best license I know of to ensure that what I create gives users these
+capabilities and will not be patented. As these are ridiculously small examples, I am fairly positive that any
 serious work will not use them. So it should not be onerous on you.
 
-If your corporate lawyers refuse to let example AGPL3 code exist in your development environment, please write in and - 
-for my part - I will make a good faith effort to negotiate with you for you a less strict license for your company. And I 
-will doubtlessly say rude things about lawyers.
+If your corporate lawyers refuse to let example AGPL3 code exist in your development environment, please write in and -
+for my part - I will make a good faith effort to negotiate with you for you a less strict license for your company.

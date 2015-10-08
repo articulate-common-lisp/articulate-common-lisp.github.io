@@ -1,0 +1,48 @@
+---
+layout: default
+---
+
+<header>
+  <h1 class="title">SBCL Setup</h1>
+</header>
+<p>Steel Bank Common Lisp (SBCL) is aggressively maintained with
+releases approximately monthly. SBCL has a long history, with its
+source code stretching back to the early &#8217;80s under different
+systems. This tutorial recommends SBCL due to its popularity at the
+time of writing. Other opens source systems such as ECL, CLISP, CMUCL,
+and CCL exist.</p>
+<h2 id="installing-on-linux-and-osx">Installing on Linux and OSX</h2>
+<p>Linux is the &#8220;home OS&#8221; of SBCL. The installation
+procedure also works the same easy way for OSX. Typically the best way
+to start is to download the binary
+from <a href="http://www.sbcl.org">SBCL</a> and install it.</p>
+<p>The procedure for installing it on your system runs as so:</p>
+<pre><code>tar xjf &lt;sbcl-binary&gt;
+    cd sbcl-&lt;version-name&gt;
+    sudo sh ./install.sh</code></pre>
+<p>After that, execute sbcl at the command line and you should find
+the REPL! Congratulations!</p>
+<p>SBCL&#8217;s REPL is designed to be used in an environment such as
+emacs&#8217; SLIME interface. Check the IDE help page for more
+information.</p>
+<h2 id="linedit">Linedit</h2>
+<p>The tool Linedit should provide some reasonable CLI capabilities for users.</p>
+<p>In order to load it into SBCL, copy and paste the following snippet:</p>
+<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="kw">progn</span>
+    (ql:quickload :linedit)
+    (<span class="kw">require</span> :sb-aclrepl)
+    (<span class="kw">require</span> :linedit)
+    (<span class="kw">funcall</span> (<span class="kw">intern</span> <span class="st">&quot;INSTALL-REPL&quot;</span> :linedit) :wrap-current <span class="kw">t</span>))</code></pre>
+<h2 id="installing-on-windows">Installing on Windows</h2>
+<p>Dear Windows SBCL user, please tell us how it&#8217;s done!</p>
+<h2 id="further-installation-on-linuxosx">Further installation on Linux/OSX</h2>
+<p>Sometimes the SBCL you pick up from sbcl.org isn&#8217;t as feature-complete as you want, or perhaps you want to recompile it for your own reasons (i.e., the Hunchentoot web server requires threads).</p>
+<p>In order to do this, download the <em>source</em> SBCL package and issue this set of commands:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sh</span> ./make.sh --fancy
+    <span class="kw">pushd</span> doc/manual/ <span class="kw">&amp;&amp;</span> <span class="kw">make</span> <span class="kw">&amp;&amp;</span> <span class="kw">popd</span>
+    <span class="kw">sudo</span> sh ./install.sh</code></pre>
+<ul>
+  <li><p>&#8211;fancy builds with several optional features as of 1.1.3: :sb-core-compression :sb-xref-for-internals :sb-after-xc-core, plus threading on supported platforms.</p></li>
+  <li><p>For platforms with very limited memory, &#8211;dynamic-space-size=<MB> can help ensure that you don&#8217;t blow the internal Lisp heap.</p></li>
+</ul>
+<hr/>

@@ -1,0 +1,67 @@
+---
+layout: default
+---
+
+<header>
+  <h1 class="title">Choosing Your Lisp</h1>
+</header>
+<p>Common Lisp implementations usually are called &#8220;systems&#8221;, and there are a number for the expert to choose from; I recommend <strong><a href="http://sbcl.org">SBCL</a></strong> for new users. Read on for more detail.</p>
+<h2 id="open-source">Open Source</h2>
+<p>In general, Lisp systems are designed around a front end to do development with. However, without an IDE, usually the best usability is to use a system with working arrow keys in the terminal. The author has investigated the <em>CCL</em> and <em>SBCL</em> systems using a plugin called Linedit; this should provide a ramp-up experience.</p>
+<p>Using emacs as an IDE and <a href="http://sbcl.org">SBCL</a> (Steel Bank Common Lisp) is the most popular choice at this point in time for open source development. Other common systems are CCL (Clozure Common Lisp), CLISP, ABCL (Armed Bear Common Lisp) and ECL (Embeddable Common Lisp). Less common systems exist. This author recommends <em>SBCL</em> or <em>CCL</em> for beginners who are comfortable on the command line, but would like to point out that each Lisp system provides value within the general Common Lisp ecosystem.</p>
+<h2 id="commercial">Commercial</h2>
+<p>LispWorks and Allegro Common Lisp are the currently maintained commercial implementations with IDEs. They provide free limited-functionality personal editions. This author has had good experiences with LispWorks Personal Edition; it has limitations on its use, however.</p>
+<p>Mobile developers may find <a href="https://wukix.com/mocl">mocl</a> a very interesting product in this space; it is a recently (2013) released Common Lisp system designed for interoperation with the base systems.</p>
+<h2 id="tabulation-of-systems">Tabulation of systems</h2>
+<table class="table table-striped" style="text-align: left;">
+  <thead>
+    <tr class="header">
+      <th>Name</th>
+      <th>Base</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="odd">
+      <td><a href="sbcl-setup.html">SBCL</a></td>
+      <td>Native</td>
+      <td>High speed compiler</td>
+    </tr>
+    <tr class="even">
+      <td><a href="ccl-setup.html">CCL</a></td>
+      <td>Native</td>
+      <td>High speed compiler, good on OSX and Windows</td>
+    </tr>
+    <tr class="odd">
+      <td><a href="clisp-setup.html">CLISP</a></td>
+      <td>Native</td>
+      <td>High speed compiler, good on OSX and Windows</td>
+    </tr>
+    <tr class="even">
+      <td><a href="lispworks-setup.html">LW</a></td>
+      <td>Native</td>
+      <td>Commercial platform</td>
+    </tr>
+    <tr class="odd">
+      <td>ACL</td>
+      <td>Native</td>
+      <td>Commercial platform</td>
+    </tr>
+    <tr class="even">
+      <td>ABCL</td>
+      <td>JVM</td>
+      <td>Java interop</td>
+    </tr>
+    <tr class="odd">
+      <td>ECL</td>
+      <td>C</td>
+      <td>C interop, has iOS port</td>
+    </tr>
+    <tr class="even">
+      <td>MOCL</td>
+      <td>Native</td>
+      <td>Stores CL as a library for mobile devices - iOS &amp; Android</td>
+    </tr>
+  </tbody>
+</table>
+<hr/>

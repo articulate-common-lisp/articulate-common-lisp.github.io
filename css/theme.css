@@ -1,0 +1,62 @@
+body {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    color: #000;
+}
+
+.copyright {
+    color: #ffffff;
+}
+
+.navbar {
+    font-size: medium;
+}
+.navbar-inverse .navbar-nav >  li > a {
+    color: #54de61;
+}
+
+.footer {
+    color: #777777;
+    font-size: x-small;
+    text-align: center;
+}
+
+
+.footer a {
+    color: blue;
+}
+
+.sidebar h1 {
+    color: #ee4444;
+    font-size: 1.3em;
+}
+
+.sidebar a {
+    color: #428bca;
+}
+
+.sidebar li {
+    margin-top: .7em;
+    line-height: 1em;
+}
+
+.sidebar a:hover {
+    color: #3071a9;
+}
+
+.container-left {
+    margin: 0;
+}
+
+.well h1 {
+    color: #ee4444;
+    font-size: 1.3em;
+}
+
+.author {
+    color: #ee4444;
+}
+
+.author a {
+    color: #ee4444;
+}

@@ -1,0 +1,59 @@
+- title: "Home"
+  href: "/"
+
+- title: "Quicklinks"
+  href: "/quicklinks.html"
+
+- title: "Starting a Project"
+  href: "/project"
+  subcategories:
+    - subtitle: "New Project"
+      subhref: "/new-project.html"
+
+    - subtitle: "Basic Project"
+      subhref: "/basic-project.html"
+
+    - subtitle: "ABCs"
+      subhref: "/abcs.html"
+
+- title: "Implementations"
+  href: "/implementations"
+  subcategories:
+    - subtitle: "Summary"
+      subhref: "/summary.html"
+    - subtitle: "Clozure CL"
+      subhref: "/ccl-setup.html"
+    - subtitle: "CLISP"
+      subhref: "/clisp-setup.html"
+    - subtitle: "SBCL"
+      subhref: "/sbcl-setup.html"
+    - subtitle: "LispWorks CL"
+      subhref: "/lispworks-setup.html"
+
+- title: "IDEs"
+  href: "/ides"
+  subcategories:
+    - subtitle: "Summary"
+      subhref: "/summary.html"
+    - subtitle: "Emacs"
+      subhref: "/emacs-setup.html"
+    - subtitle: "SLIME"
+      subhref: "/slime-setup.html"
+    - subtitle: "CUSP"
+      subhref: "/cusp-setup.html"
+    - subtitle: "LispWorks CL"
+      subhref: "/lispworks-setup.html"
+
+- title: "Examples"
+  href: "/examples"
+  subcategories:
+    - subtitle: "Snippets"
+      subhref: "/snippets.html"
+    - subtitle: "Trotter"
+      subhref: "/trotter.html"
+
+- title: "Libraries"
+  href: "/quicklisp.html"
+
+- title: "Who?"
+  href: "/about/"

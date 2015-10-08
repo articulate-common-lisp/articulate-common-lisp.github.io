@@ -1,0 +1,113 @@
+---
+layout: default
+---
+
+<header>
+<h1 class="title">Snippets</h1>
+</header>
+<p>One of the great resources we can have as developers is snippets and example code to understand how the idiom of a language is spoken and written.</p>
+<h3 id="defining-a-function">Defining a function:</h3>
+<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="kw">defun</span><span class="fu"> function-name </span>(param1 param2 &amp;key (keyword1 default-value))
+    <span class="co">;; keywords are optional; optional positional parameters are also available. </span>
+    <span class="co">;; implicit progn</span>
+  )</code></pre>
+<h3 id="defining-a-method-on-a-type">Defining a method on a type:</h3>
+<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="kw">defmethod</span><span class="fu"> method-name </span>((param1 <span class="kw">class-name</span>))
+   <span class="co">;; implicit progn</span>
+  )</code></pre>
+<h3 id="defining-a-class">Defining a class</h3>
+<p>Note that <code>DEFCLASS</code> accessor functions for slots can be <code>SETF</code>&#8217;d and serve as both getters and setters for the slot.</p>
+<p><code>:INITARG</code> is the keyword used in <code>MAKE-INSTANCE</code> to denote the value of the initial argument (see below).</p>
+<p><code>:INITFORM</code> is the form used to initialize the slot. Without this, it defaults to <code>nil</code>. I favor using <code>nil</code>, <code>0</code>, <code>&quot;&quot;</code>, or <code>(error &quot;You must set slot &lt;slotname&gt; to a value&quot;)</code> as the usual initform set.</p>
+<p>Note that <code>(:documentation ...)</code> is the standard documentation mechanism, which can be viewed in the running image with <code>DESCRIBE</code> (at least in SBCL).</p>
+<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">
+<span class="co">;; no superclass, no slots.</span>
+(<span class="kw">defclass</span><span class="fu"> superclass-1 </span><span class="kw">nil</span> <span class="kw">nil</span>)
+
+(<span class="kw">defclass</span><span class="fu"> my-class </span>(superclass<span class="dv">-1</span>)
+  ((variable
+      :accessor accessor-function
+      :initarg  :variable
+      :initform form-for-initializition.)
+   another-variable)
+  (:documentation <span class="st">&quot;a class snippet!&quot;</span>))</code></pre>
+<h3 id="creating-an-instance">Creating an instance</h3>
+<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="kw">make-instance</span> &#39;my-class :variable value)</code></pre>
+<h3 id="adding-a-constructor">Adding a constructor</h3>
+<p>This function runs after the instance is initialized.</p>
+<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="kw">defmethod</span><span class="fu"> initialize-instance </span>:after ((obj my-class) &amp;key)
+  (<span class="kw">setf</span> (accessor-function obj) <span class="dv">10</span>))</code></pre>
+<h3 id="defining-a-constant">Defining a constant:</h3>
+<p>Note that the convention is that constants are surrounded with +</p>
+<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="kw">defconstant</span><span class="fu"> +name+ </span>value <span class="st">&quot;docstring&quot;</span>)</code></pre>
+<h3 id="defining-a-global-variable">Defining a global variable:</h3>
+<p>Note that the convention is that globals are surrounded with *</p>
+<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="kw">defparameter</span><span class="fu"> *name* </span>value <span class="st">&quot;docstring&quot;</span>)</code></pre>
+<h3 id="creating-local-variables.">Creating local variables.</h3>
+<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="kw">let</span> ((variable1 value-form)
+      (variable2 value-again))
+  <span class="co">;; implicit progn where variable[12] are valid</span>
+   )</code></pre>
+<h3 id="loop">LOOP</h3>
+<p>LOOP is a contentious form in Common Lisp: some people love its imperative style, others hate it. Regardless, its really handy! Here are my favorite LOOPs</p>
+<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">
+(<span class="kw">loop</span> for i from <span class="dv">0</span> upto <span class="dv">10</span>
+   collect i)
+
+(<span class="kw">loop</span> for i from <span class="dv">0</span> below <span class="dv">10</span>
+   collect i)
+
+(<span class="kw">loop</span> for i from <span class="dv">0</span> upto <span class="dv">10</span>
+   <span class="kw">do</span>
+      (side-effect i))
+
+(<span class="kw">loop</span> for ele in <span class="kw">list</span>
+   collect
+      (operate-on ele))
+
+(<span class="kw">loop</span> for ele across <span class="kw">array</span>
+   collect
+      (operate-on ele))</code></pre>
+<h3 id="lambda-functions">Lambda functions</h3>
+<p>The lambda functions is an anonymous function, i.e., unnamed.</p>
+<p>Here we map over <code>numeric-list</code> and increment each element in it by 1 with <code>1+</code>, returning the incremented list.</p>
+<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">
+(<span class="kw">mapcar</span>
+   #&#39;(<span class="kw">lambda</span> (x)
+       (<span class="kw">1+</span> x))
+   numeric-list)</code></pre>
+<h3 id="macro">Macro</h3>
+<p>Note that Lisp macros should be used with care: they read source code and emit source code.</p>
+<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="kw">defmacro</span><span class="fu"> with-resource </span>((resource) &amp;body body)
+   (allocate-resource ,resource)
+   (<span class="kw">unwind-protect</span>
+      (<span class="kw">progn</span>
+         ,@body)
+      (deallocate-resource ,resource)))</code></pre>
+<p>See <a href="http://www.lispworks.com/documentation/HyperSpec/Body/s_unwind.htm">UNWIND-PROTECT</a> for details on this very useful form.</p>
+<h3 id="writing-a-text-file">Writing a text file</h3>
+<p>More complete reading and writing of text files can be done by using the ALEXANDRIA library; these routines are great for starting to customize your own routine.</p>
+<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="kw">defun</span><span class="fu"> write-file </span>(filename data)
+ (<span class="kw">with-open-file</span> (<span class="kw">stream</span>
+                    filename
+                    <span class="kw">:direction</span> <span class="kw">:output</span>
+                    :if-exists <span class="kw">:supersede</span>
+                    :if-does-not-exist <span class="kw">:create</span>)
+    (<span class="kw">write-sequence</span>
+         data
+         <span class="kw">stream</span>)))</code></pre>
+<h3 id="reading-a-text-file">Reading a text file</h3>
+<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">
+(<span class="kw">defun</span><span class="fu"> read-file </span>(filename)
+  <span class="st">&quot;Reads `filename` as a sequence of unsigned 8-bit bytes, no</span>
+<span class="st">encoding&quot;</span>
+  (<span class="kw">with-open-file</span> (fin filename
+                   <span class="kw">:direction</span> <span class="kw">:input</span>
+                   :if-does-not-exist <span class="kw">:error</span>)
+    (<span class="kw">let</span> ((seq (<span class="kw">make-array</span> (<span class="kw">file-length</span> fin)
+                           :fill-pointer <span class="kw">t</span>)))
+      (<span class="kw">setf</span> (<span class="kw">fill-pointer</span> seq)
+            (<span class="kw">read-sequence</span> seq fin))
+      seq)))</code></pre>
+<p>Please feel free to contribute your examples or library information to this page! Send in those pull requests and file those bugs!</p>
+<hr/>

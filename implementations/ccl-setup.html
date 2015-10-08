@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+<header>
+<h1 class="title">Clozure CL Setup</h1>
+</header>
+<p>Clozure is an open source Lisp system provided by Clozure associates.</p>
+<h2 id="installing">Installing</h2>
+<p>I&#8217;ll defer to their instructions for <a href="http://ccl.clozure.com/download.html">installation</a>.</p>
+<p>Of particular interest is that it works on the PPC and ARM architectures; this can be of use to embedded system developers. It is possible to get <a href="http://mickcharlesbeaver.blogspot.com/2014/01/clozure-common-lisp-ccl-on-raspberry-pi.html">CCL working on the Raspberry Pi</a>, for instance.</p>
+<p>CCL is particularly well-developed on Mac OS X, including a Cocoa bridge and an IDE. It&#8217;s also a good choice on Windows as it supports native (Win32) threads.</p>
+<p>In general, like SBCL, it&#8217;s designed to be used as the backend to an IDE.</p>
+<p>Note that each platform has a <em>different</em> CCL executable.</p>
+<ul>
+<li><p>Linux: lx86cl, lx86cl64</p></li>
+<li><p>OSX: dx86cl, dx86cl64</p></li>
+<li><p>Windows: wx86cl.exe, wx86cl64.exe</p></li>
+</ul>
+<h2 id="linedit">Linedit</h2>
+<p>A CLI tool called linedit is useful.</p>
+<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(ql:quickload :linedit)
+(<span class="kw">require</span> :linedit)
+(<span class="kw">funcall</span> (<span class="kw">intern</span> <span class="st">&quot;INSTALL-REPL&quot;</span> :linedit) :wrap-current <span class="kw">t</span>)</code></pre>
+<h2 id="notes">Notes</h2>
+<p>CCL, in general, is very fast to load and has a good reputation for performance.</p>
+<hr/>

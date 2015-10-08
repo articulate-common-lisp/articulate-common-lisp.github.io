@@ -1,0 +1,65 @@
+---
+layout: default
+---
+<header>
+<h1 class="title">Trotter Walkthrough</h1>
+</header>
+<p>The Trotter is an example web spider; it &#8220;trots&#8221; through a web page, heuristically determining which links to follow and recursively printing them.</p>
+<p>The Trotter is designed to be a simple program to demonstrate what a basic Common Lisp program looks like.</p>
+<p>The raw file can be found at <a href="src/web-trotter.lisp">web-trotter.lisp</a>.</p>
+<p>The first form in the code is loading the external libraries:</p>
+<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(ql:quickload &#39;(:drakma
+                :split-sequence
+                :cl-ppcre
+                :babel))</code></pre>
+<p><code>DRAKMA</code> is the standard HTTP(S) client library in Lisp, <code>SPLIT-SEQUENCE</code> does what you might think, <code>CL-PPCRE</code> is a reimplementation of the PPCRE library in native Lisp (It&#8217;s considered one of the best modern CL libraries, go check the source out sometime). <code>BABEL</code> is a encoding/decoding tool for strings. Note that they are referred to here as &#8220;keywords&#8221;.</p>
+<p>The second form in the code defines a global that describes what an URL looks like. Of course, it&#8217;s not very precise, but it suffices for our purpose. The key thing here is that <code>\</code> are doubled for the special forms. This is part of the CL-PPCRE regex definition.</p>
+<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="kw">defparameter</span><span class="fu"> *url-regex* </span><span class="st">&quot;(</span>\\<span class="st">w+://[-</span>\\<span class="st">w</span>\\<span class="st">./_?=%&amp;]+)&quot;</span>
+  <span class="st">&quot;Hacked up regex suitable for demo purposes.&quot;</span>)</code></pre>
+<p>Next, a predicate for HTTP. We really don&#8217;t care about FTP, HTTPS, GOPHER, GIT, etc protocols. It returns nil if it can&#8217;t find http:// in the URL.</p>
+<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="kw">defun</span><span class="fu"> http-p </span>(url)
+  (cl-ppcre:all-matches <span class="st">&quot;</span>\\<span class="st">bhttp://&quot;</span> url))</code></pre>
+<p>Next, a predicate to check to see if our data is ASCII. While Common Lisp can handle Unicode data, this is a sample program, and the complexities of Unicode can be deferred.</p>
+<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="kw">defun</span><span class="fu"> ascii-p </span>(data)
+  <span class="st">&quot;A not terribly great way to determine if the data is ASCII&quot;</span>
+  (<span class="kw">unless</span> (<span class="kw">stringp</span> data)
+    (<span class="kw">loop</span> for elem across data <span class="kw">do</span>
+         (<span class="kw">when</span> (<span class="kw">&gt;</span> elem <span class="dv">127</span>)
+           (<span class="kw">return-from</span> ascii-p <span class="kw">nil</span>))))
+  <span class="kw">t</span>)</code></pre>
+<p>Next, we have a quick (and dirty) way to see if a URL is going to point to a binary. It just looks for a binary file extension in the string.</p>
+<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="kw">defun</span><span class="fu"> known-binary-p </span>(url)
+    <span class="st">&quot;Is this url a binary file?&quot;</span>
+    (<span class="kw">let</span> ((binaries
+              &#39;(<span class="st">&quot;.png&quot;</span> <span class="st">&quot;.bmp&quot;</span> <span class="st">&quot;.jpg&quot;</span> <span class="st">&quot;.exe&quot;</span> <span class="st">&quot;.dmg&quot;</span> <span class="st">&quot;.package&quot;</span> <span class="st">&quot;.css&quot;</span>
+                   <span class="st">&quot;.ico&quot;</span> <span class="st">&quot;.gif&quot;</span> <span class="st">&quot;.dtd&quot;</span> <span class="st">&quot;.pdf&quot;</span> <span class="st">&quot;.xml&quot;</span> <span class="st">&quot;.tgz&quot;</span>)))
+        (<span class="kw">dolist</span> (b binaries NIL)
+            (<span class="kw">when</span> (<span class="kw">search</span> b url)
+                (<span class="kw">return</span> T)))))</code></pre>
+<p>The next form is the most complex: <code>find-links</code>.</p>
+<p><code>find-links</code> attempts to find all the links in a given url.</p>
+<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">
+(<span class="kw">defun</span><span class="fu"> find-links </span>(url)
+  <span class="st">&quot;Scrapes links from a URL. Prints to STDOUT if an error is caught&quot;</span>
+  (<span class="kw">when</span> (<span class="kw">and</span> (http-p url)
+             (<span class="kw">not</span> (known-binary-p url)))
+    (<span class="kw">handler-case</span>
+        (<span class="kw">let</span> ((page (drakma:http-request url)))
+          (<span class="kw">when</span> page
+            (<span class="kw">when</span> (ascii-p page)
+              (cl-ppcre:all-matches-as-strings
+               *url-regex*
+               (<span class="kw">if</span> (<span class="kw">stringp</span> page)
+                   page
+                   (babel:octets-to-string page))))))
+
+      #+sbcl(sb-int:simple-stream-error (se) (<span class="kw">format</span> <span class="kw">t</span> <span class="st">&quot;Whoops, ~a didn&#39;t work. ~a~%&quot;</span> url se))
+      (DRAKMA::DRAKMA-SIMPLE-ERROR (se) (<span class="kw">format</span> <span class="kw">t</span> <span class="st">&quot;Error? ~a threw ~a~%&quot;</span> url se))
+      (USOCKET:TIMEOUT-ERROR (se) (<span class="kw">format</span> <span class="kw">t</span> <span class="st">&quot;timeout error ~a threw ~a~%&quot;</span> url se))
+      (USOCKET:NS-HOST-NOT-FOUND-ERROR (se) (<span class="kw">format</span> <span class="kw">t</span> <span class="st">&quot;host-not-found error ~a threw ~a~%&quot;</span> url se))
+      (FLEXI-STREAMS:EXTERNAL-FORMAT-ENCODING-ERROR (se) (<span class="kw">format</span> <span class="kw">t</span> <span class="st">&quot;~a threw ~a~%&quot;</span> url se)))))</code></pre>
+<p>The initial form is <code>WHEN</code> - a one-branch conditional. When we have a http link and it&#8217;s not a binary URL, then&#8230;</p>
+<p><code>HANDLER-CASE</code> wraps some code. <code>HANDLER-CASE</code> is part of the Common Lisp condition system; it serves as the &#8220;try&#8221; block in this situation. The list of errors below form the &#8220;catch&#8221; blocks. The interested reader is referred to <a href="../quicklinks.html">the quicklinks section</a> for more resources. Note that the errors are typical network errors- timeouts, stream errors, encoding errors.</p>
+<p>The first form in <code>HANDLER-CASE</code> requests in the url and assigns it to page. Supposing we got something, we make sure it&#8217;s an ascii page; if so, we then find all the url-ish looking things, using the previously defined global. Supposing that the page is, indeed, a string, we return it, otherwise we convert the octets to a string and return that. N.b.: Common Lisp makes a difference between strings and vectors of bytes. Of course, if an error occurred, the <code>HANDLER-CASE</code> will route to the known conditions.</p>
+<p>Note that in one case, <code>#+sbcl</code> is present; this is a Common Lisp syntax to indicate that the following form is for SBCL only.</p>
+<hr/>

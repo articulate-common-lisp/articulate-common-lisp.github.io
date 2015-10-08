@@ -1,0 +1,49 @@
+---
+layout: default
+---
+<header>
+<h1 class="title">ABCs of Lisp</h1>
+</header>
+<p>This file summarizes a few of the key concepts of working with Common Lisp and some common nomenclature. It also gives you a quick and easy set of &#8220;template&#8221; copy and paste forms for early use.</p>
+<h2 id="concepts-and-comments">Concepts and Comments</h2>
+<p>Common Lisp (let&#8217;s just call it Lisp for the rest of the file) is designed around the idea of having a <em>REPL</em> (read evaluate print loop).</p>
+<p>Typically, what occurs is the Lisper injects <em>forms</em> (the text between parentheses) from the editor into the REPL directly. E.g., in the author&#8217;s emacs configuration, <code>C-x e</code> evaluates the text in the buffer in the operating Lisp instance, immediately available for inspection and testing. This is in strong contrast to languages like C where a recompile of the project/file is required to check correctness of the code.</p>
+<p>It is also feasible to develop in a more traditional style, where there is an edit/compile/revise cycle based upon files. In order to do that, use the LOAD form from the repl or the particular system&#8217;s automatic load command-line option. <code>(LOAD &quot;lispfile.lisp&quot;)</code>.</p>
+<p>Modern Lisp systems commonly provide on-the-fly compilation of the forms entered into it. This will slow down the boot process if the compilation happens every time; interpreted programs will run slower but boot faster. One common deployment strategy involves saving a preloaded <em>image</em> and executing it on demand.</p>
+<p>Most Lisp work is done within the Emacs/SLIME milieu; however, IDE&#8217;s like LispWorks or Allegro Common Lisp offer similar functionality.</p>
+<p>Typically the Lisp forms such as <code>LET</code>, <code>DEFUN</code>, and <code>MULTIPLE-VALUE-BIND</code> contain something known as an &#8220;implicit progn&#8221;. The implicit progn denotes a list of commands in a block structure (see <a href="http://www.lispworks.com/documentation/lw61/CLHS/Body/s_progn.htm">PROGN</a> for details). However, <code>IF</code> does not have this, which routinely is a gotcha to the author.</p>
+<p>Common Lisp contains a macro facility - <code>DEFMACRO</code>. Generally, newbies are not advised to write their own macros, as they are powerful and can cause unexpected results.</p>
+<p>When setting a variable, use SETF, not SETQ or SET. Those commands operate at a lower level of abstraction and are not designed for everyday use.</p>
+<h2 id="standard-packages.">Standard packages.</h2>
+<p>Some of these packages are community-recognized standards; others are simply the best the author has found. All are available on Quicklisp..</p>
+<ul>
+<li><p>Alexandria - a library of standard common functions.</p></li>
+<li><p>bordeaux-threads - a os threading library.</p></li>
+<li><p>drakma - http client</p></li>
+<li><p>cl-ppcre - regular expression library</p></li>
+<li><p>yason - a json reader</p></li>
+<li><p>closer-mop - a library for managing metaobjects</p></li>
+<li><p>metabang-bind - a more sophisticated LET</p></li>
+<li><p>anaphora - standard package of exotic macros</p></li>
+<li><p>babel - management of text encodings</p></li>
+<li><p>osicat - operating-system interface routines</p></li>
+<li><p>external-program - runs external programs.</p></li>
+<li><p>ironclad - encryption</p></li>
+<li><p>cl-csv - csv-parsing</p></li>
+<li><p>local-time - datetime library</p></li>
+<li><p>lhstats - statistics library</p></li>
+<li><p>log4cl - a logging library</p></li>
+<li><p>postmodern - postgres integration</p></li>
+<li><p>wu-decimal - decimal management</p></li>
+<li><p>split-sequence - splitting sequences</p></li>
+</ul>
+<p>Popular libraries that the author have not used include:</p>
+<ul>
+<li><p>iterate - a &#8220;more lispy&#8221; loop facility.</p></li>
+<li><p>log5 - a log facility</p></li>
+<li><p>parenscript - a CL -&gt; javascript emitter</p></li>
+<li><p>lparallel - a library for parallel programming</p></li>
+<li><p>usocket - TCP socket library</p></li>
+</ul>
+<p>For snippets and code samples, please see the Snippets in the Examples submenu.</p>
+<hr/>

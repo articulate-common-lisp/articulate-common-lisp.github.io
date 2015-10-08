@@ -1,0 +1,77 @@
+---
+layout: default
+---
+<header>
+<h1 class="title">New Projects</h1>
+</header>
+<p>Here&#8217;s a short guide on what you should do for a single project.</p>
+<h1 id="one-file-project-no-dependencies">One-file project, no dependencies</h1>
+<p>A one-file project has these characteristics:</p>
+<ul>
+<li>Simple</li>
+<li>Usually presented in Lisp textbooks</li>
+<li>Usually not realistic.</li>
+</ul>
+<h1 id="one-file-project-uses-libraries">One file project, uses libraries</h1>
+<ul>
+<li>Small system.</li>
+<li>Relatively common</li>
+<li>An example is the <a href="../examples/src/web-trotter.lisp">web-trotter</a> program.</li>
+</ul>
+<h1 id="introduction-to-asdf">Introduction to ASDF</h1>
+<p>ASDF, also known as Another System Definition Facility, is the modern way for defining Common Lisp libraries. It is fully supported by Quicklisp, and supports adding your own private libraries.</p>
+<p>ASDF depends on two things:</p>
+<ul>
+<li>ASDF configured to know where this repository is; here&#8217;s a configuration from one of my SBCL init files, specifying that the ASDF repository lives in the <code>~/asdf/</code> folder.</li>
+</ul>
+<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="kw">pushnew</span> <span class="st">&quot;~/asdf/&quot;</span> asdf:*central-registry* <span class="kw">:test</span> #&#39;equal)</code></pre>
+<ul>
+<li>Repository for local libraries with the <code>ASD</code> files symlinked in: here&#8217;s a example of a ls of my repository:</li>
+</ul>
+<pre><code>$ ls -1 ~/asdf
+batteries.asd
+cl-finance-query.asd
+cl-yahoo-finance-query.asd
+defobject.asd</code></pre>
+<p><code>ASD</code> files are ASDF library definition files.</p>
+<p>Here is a copy of the contents a library&#8217;s ASD file:</p>
+<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">
+(asdf:defsystem #:cl-yahoo-finance
+  :depends-on ( #:drakma #:babel #:cl-csv #:yason #:url-rewrite)
+  :components ((:file <span class="st">&quot;cl-yahoo-finance&quot;</span>))
+  <span class="kw">:name</span> <span class="st">&quot;cl-yahoo-finance&quot;</span>
+  <span class="kw">:version</span> <span class="st">&quot;3.3&quot;</span>
+  :maintainer <span class="st">&quot;Paul Nathan&quot;</span>
+  :author <span class="st">&quot;Paul Nathan&quot;</span>
+  :license <span class="st">&quot;LLGPL&quot;</span>
+  :description <span class="st">&quot;CL interface to Yahoo&#39;s finance API&quot;</span>
+  :long-description <span class="st">&quot;Common Lisp interface to Yahoo&#39;s finance API, available over the web. See usage.lisp for example code.&quot;</span>)</code></pre>
+<p>Briefly, it defines an ASDF system named <code>:cl-yahoo-finance</code>, along with its dependencies, components, and some human metadata. This integrates with Quicklisp such that I can <code>(ql:quickload :cl-yahoo-finance</code> and have it load.</p>
+<h1 id="one-file-library-project">One file library project</h1>
+<ul>
+<li>Will export ASDF dependencies</li>
+<li>Will be usable by Quicklisp</li>
+</ul>
+<h1 id="multifile-project.">Multifile project.</h1>
+<ul>
+<li>ASDF heavily used</li>
+<li>Quicklisp heavily used</li>
+<li>Packages, Systems, O My</li>
+</ul>
+<h1 id="quickproject">Quickproject</h1>
+<p>You can easily setup a project with Xach&#8217;s <a href="http://www.xach.com/lisp/quickproject/">Quickproject</a>.</p>
+<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(ql:quickload <span class="st">&quot;quickproject&quot;</span>)
+(quickproject:make-project <span class="st">&quot;~/quicklisp/local-projects/cl-yahoo-finance/&quot;</span>
+                           :depends-on &#39;(drakma babel cl-csv yason url-rewrite)
+                           :author <span class="st">&quot;Paul Nathan&quot;</span>
+                           :license <span class="st">&quot;LLGPL&quot;</span>
+                           <span class="kw">:name</span> <span class="st">&quot;cl-yahoo-finance&quot;</span>)</code></pre>
+<pre><code>$ ls ~/quicklisp/local-projects/cl-yahoo-finance/
+README.txt
+package.lisp
+cl-yahoo-finance.asd
+cl-yahoo-finance.lisp</code></pre>
+<p>Any system you put in Quicklisp&#8217;s &#8220;local-projects&#8221; is quickloadable:</p>
+<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(ql:quickload :cl-yahoo-finance)</code></pre>
+<p>Happy hacking!</p>
+<hr/>
