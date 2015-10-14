@@ -3,13 +3,42 @@ layout: default
 ---
 
 <header>
-<h1 class="title">CLISP Setup</h1>
+<h1>CLISP Setup</h1>
 </header>
+
+<p>The <a href="http://www.clisp.org">CLISP</a> Common Lisp implementation is a good 
+general-purpose interpreter licensed under the terms of the GNU GPLv2. Though not as
+popular as SBCL, it sports an intuitive user interface, a byte-code compiler and an 
+easy-to-use debugger. </p>
+
+<p>It also includes various useful extensions to the official ANSI standard, such as 
+foreign function calls and a socket interface. (Note however that using 
+implementation-specific features binds one to the GPL.)</p>
 
 <h2>Installing</h2>
 
-<p><a href="http://www.clisp.org/">Download</a> one of the packages or pre-built binaries.</p>
+<p><a href="http://www.sourceforge.net/projects/clisp">Download</a> one of the packages or 
+pre-built binaries.</p>
 
-<h2>Notes</h2>
-<p>This page is a stub that needs to be expanded</p>
-<hr />
+<h3>Installing on Linux</h3>
+
+<p>On Ubuntu/Debian-based systems, you can install CLISP from the repositories with the
+following command:</p>
+
+<pre><code>apt-get install clisp</code></pre>
+
+<p>On Arch-based systems, use:</p>
+
+<pre><code>pacman -S clisp</code></pre>
+
+<p>On Fedora (>= 18, if you have an old version of Fedora, replace <code>dnf</code> with
+<code>yum</code>):</p>
+
+<pre><code>dnf install clisp</code></pre>
+
+<p>On Gentoo:</p>
+
+<pre><code>emerge -auvDN dev-lisp/clisp</code></pre>
+
+<p>Note that you will probably need admin privileges to install any software on your
+computer (e.g. by using <code>sudo</code>)</p>
