@@ -6,7 +6,9 @@ docs/specs for a tutorial/introduction site for a Common Lisp environment
 
 ** Dear Reader,
 
-One of the key problems in onboarding developers to use modern Common Lisp is the vertical wall of difficulty. Things that are routinely problematic:
+One of the key problems in onboarding developers to use modern Common
+Lisp is the vertical wall of difficulty. Things that are routinely
+problematic:
 
 - emacs use. Most people don't use emacs.
 
@@ -17,9 +19,21 @@ One of the key problems in onboarding developers to use modern Common Lisp is th
 - Putting together serious projects is not commonly discussed.
 
 
-This repository is the source code to build a Common Lisp site dedicated to handling these problems. My goal is to put together an introduction/tutorial for practicing professionals and hobbyists from other languages. People who want to get started with Lisp beyond just typing into a REPL.   Right now, it feels like this information is less disseminated and much less centralized than it otherwise might be.  It's not intended to be a HOWTO for Common Lisp. That's been covered *quite* well. But it is intended to be a HOWTO on how to put together a Lisp *environment*.
+This repository is the source code to build a Common Lisp site
+dedicated to handling these problems. My goal is to put together an
+introduction/tutorial for practicing professionals and hobbyists from
+other languages. People who want to get started with Lisp beyond just
+typing into a REPL.  Right now, it feels like this information is less
+disseminated and much less centralized than it otherwise might be.
+It's not intended to be a HOWTO for Common Lisp. That's been covered
+*quite* well. But it is intended to be a HOWTO on how to put together
+a Lisp *environment*.
 
-Anyway, I'd like to collaborate with other people to build a remarkably fine Lisp help site.  Contributions are both *accepted* and *welcome*. It's a wholly static site at this point in time - I don't see a need for articulate-lisp.com to have a dynamic backend. Perhaps/probably one of the code examples will be a webapp.
+Anyway, I'd like to collaborate with other people to build a
+remarkably fine Lisp help site.  Contributions are both *accepted* and
+*welcome*. It's a wholly static site at this point in time - I don't
+see a need for articulate-lisp.com to have a dynamic
+backend. Perhaps/probably one of the code examples will be a webapp.
 
 Happy Hacking,
 
@@ -28,18 +42,48 @@ Paul Nathan
 P.S.: feel free to contact me for anything you like.
 
 
+** Making Contributions.
+
+Please send in pull requests or issues!
+
+Each pull request is vetted to correctly compile in Jekyll; this is
+then logged on Github and has to pass for a pull request to be
+mergable to master.
+
+
 ** Notes regarding build process.
 
-This is a Jekyll site; the existing build scripts use Dockerized
-Jekyll for sandboxing.
+Articulate Common Lisp is super-heavy on Docker
+(http://docker.com/). Docker is used for doing builds, as well as the
+vehicle of deployment. This is because we think it's simpler than
+having to install all sorts of other dependencies and keeping them up
+to date.
 
-Unfortunately, I don't have autobuild yet set up to Docker build &&
-docker push, as that requires credentials and capabilities Travis
-doesn't have yet.4
+This is a Jekyll site; therefore existing build scripts use Dockerized
+Jekyll to do the build.
 
-** Contributions.
+If you run this...
 
-Please send in pull requests!
+     #+BEGIN_EXAMPLE
+     ./livetest.sh
+     #+END_EXAMPLE
+
+You will have a hot-rebuilding Jekyll server running on
+http://localhost:4000. Hit Ctrl-C to stop it. This is very useful for
+contributing content!
+
+
+If you run this...
+
+#+BEGIN_EXAMPLE
+./build.sh
+#+END_EXAMPLE
+
+You will then have the Jekyll compile occur, then the Docker instance
+build.
+
+This is the process used to deploy new versions onto Docker Hub; these
+are then downloaded onto the VPS and started up.
 
 
 ** License information & legalities.
