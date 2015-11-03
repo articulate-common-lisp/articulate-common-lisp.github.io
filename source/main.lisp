@@ -3,7 +3,7 @@
 (defvar *acceptor* nil "the hunchentoot acceptor")
 (format t "Articulating Common Lisp...~%")
 
-(hunchentoot:define-easy-handler (release :uri "/api/release/") ()
+(hunchentoot:define-easy-handler (release :uri "/api/release") ()
     (setf (hunchentoot:content-type*) "text/plain")
   (format t "A release of articulate-common-lisp is present!")
   (with-open-file (stream "/tmp/articulate-common-lisp.release" :direction :output :if-exists :overwrite :if-does-not-exist :create)
