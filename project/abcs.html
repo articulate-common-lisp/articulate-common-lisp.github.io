@@ -14,17 +14,22 @@ layout: default
 <p>Typically the Lisp forms such as <code>LET</code>, <code>DEFUN</code>, and <code>MULTIPLE-VALUE-BIND</code> contain something known as an &#8220;implicit progn&#8221;. The implicit progn denotes a list of commands in a block structure (see <a href="http://www.lispworks.com/documentation/lw61/CLHS/Body/s_progn.htm">PROGN</a> for details). However, <code>IF</code> does not have this, which routinely is a gotcha to the author.</p>
 <p>Common Lisp contains a macro facility - <code>DEFMACRO</code>. Generally, newbies are not advised to write their own macros, as they are powerful and can cause unexpected results.</p>
 <p>When setting a variable, use SETF, not SETQ or SET. Those commands operate at a lower level of abstraction and are not designed for everyday use.</p>
+
 <h2 id="standard-packages.">Standard packages.</h2>
-<p>Some of these packages are community-recognized standards; others are simply the best the author has found. All are available on Quicklisp..</p>
+
+<p>Some of these packages are community-recognized standards; others are simply the best the author has found. All are available on Quicklisp.</p>
+
+<p>See also the <a href="https://github.com/CodyReichert/awesome-cl">Awesome Common Lisp</a> list and the <a href="http://eudoxia.me/article/common-lisp-sotu-2015">State of the Common Lisp ecosystem</a> article.</p>
+
 <ul>
-<li><p>Alexandria - a library of standard common functions.</p></li>
+<li><p><a href="https://common-lisp.net/project/alexandria/">Alexandria</a> - a library of standard common functions.</p></li>
 <li><p>bordeaux-threads - a os threading library.</p></li>
-<li><p>drakma - http client</p></li>
+<li><p><a href="http://quickdocs.org/dexador/">dexador</a> - http client</p></li>
 <li><p>cl-ppcre - regular expression library</p></li>
-<li><p>yason - a json reader</p></li>
+<li><p><a href="http://quickdocs.org/yason/">yason</a> - a json reader</p></li>
 <li><p>closer-mop - a library for managing metaobjects</p></li>
 <li><p>metabang-bind - a more sophisticated LET</p></li>
-<li><p>anaphora - standard package of exotic macros</p></li>
+<li><p><a href="https://common-lisp.net/project/anaphora/">anaphora</a> - standard package of exotic macros</p></li>
 <li><p>babel - management of text encodings</p></li>
 <li><p>osicat - operating-system interface routines</p></li>
 <li><p>external-program - runs external programs.</p></li>
@@ -41,7 +46,7 @@ layout: default
 <ul>
 <li><p>iterate - a &#8220;more lispy&#8221; loop facility.</p></li>
 <li><p>log5 - a log facility</p></li>
-<li><p>parenscript - a CL -&gt; javascript emitter</p></li>
+<li><p><a href="https://common-lisp.net/project/parenscript/">parenscript</a> - a CL -&gt; javascript emitter</p></li>
 <li><p>lparallel - a library for parallel programming</p></li>
 <li><p>usocket - TCP socket library</p></li>
 </ul>
