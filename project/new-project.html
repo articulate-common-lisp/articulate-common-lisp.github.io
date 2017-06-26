@@ -24,7 +24,7 @@ layout: default
 <ul>
 <li>ASDF configured to know where this repository is; here&#8217;s a configuration from one of my SBCL init files, specifying that the ASDF repository lives in the <code>~/asdf/</code> folder.</li>
 </ul>
-<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(<span class="kw">pushnew</span> <span class="st">&quot;~/asdf/&quot;</span> asdf:*central-registry* <span class="kw">:test</span> #&#39;equal)</code></pre>
+<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(pushnew &quot;~/asdf/&quot; asdf:*central-registry* :test #&#39;equal)</code></pre>
 <ul>
 <li>Repository for local libraries with the <code>ASD</code> files symlinked in: here&#8217;s a example of a ls of my repository:</li>
 </ul>
@@ -38,14 +38,14 @@ defobject.asd</code></pre>
 <pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">
 (asdf:defsystem #:cl-yahoo-finance
   :depends-on ( #:drakma #:babel #:cl-csv #:yason #:url-rewrite)
-  :components ((:file <span class="st">&quot;cl-yahoo-finance&quot;</span>))
-  <span class="kw">:name</span> <span class="st">&quot;cl-yahoo-finance&quot;</span>
-  <span class="kw">:version</span> <span class="st">&quot;3.3&quot;</span>
-  :maintainer <span class="st">&quot;Paul Nathan&quot;</span>
-  :author <span class="st">&quot;Paul Nathan&quot;</span>
-  :license <span class="st">&quot;LLGPL&quot;</span>
-  :description <span class="st">&quot;CL interface to Yahoo&#39;s finance API&quot;</span>
-  :long-description <span class="st">&quot;Common Lisp interface to Yahoo&#39;s finance API, available over the web. See usage.lisp for example code.&quot;</span>)</code></pre>
+  :components ((:file &quot;cl-yahoo-finance&quot;))
+  :name &quot;cl-yahoo-finance&quot;
+  :version &quot;3.3&quot;
+  :maintainer &quot;Paul Nathan&quot;
+  :author &quot;Paul Nathan&quot;
+  :license &quot;LLGPL&quot;
+  :description &quot;CL interface to Yahoo&#39;s finance API&quot;
+  :long-description &quot;Common Lisp interface to Yahoo&#39;s finance API, available over the web. See usage.lisp for example code.&quot;)</code></pre>
 <p>Briefly, it defines an ASDF system named <code>:cl-yahoo-finance</code>, along with its dependencies, components, and some human metadata. This integrates with Quicklisp such that I can <code>(ql:quickload :cl-yahoo-finance</code> and have it load.</p>
 <h1 id="one-file-library-project">One file library project</h1>
 <ul>
@@ -60,12 +60,12 @@ defobject.asd</code></pre>
 </ul>
 <h1 id="quickproject">Quickproject</h1>
 <p>You can easily setup a project with Xach&#8217;s <a href="http://www.xach.com/lisp/quickproject/">Quickproject</a>.</p>
-<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(ql:quickload <span class="st">&quot;quickproject&quot;</span>)
-(quickproject:make-project <span class="st">&quot;~/quicklisp/local-projects/cl-yahoo-finance/&quot;</span>
+<pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(ql:quickload &quot;quickproject&quot;)
+(quickproject:make-project &quot;~/quicklisp/local-projects/cl-yahoo-finance/&quot;
                            :depends-on &#39;(drakma babel cl-csv yason url-rewrite)
-                           :author <span class="st">&quot;Paul Nathan&quot;</span>
-                           :license <span class="st">&quot;LLGPL&quot;</span>
-                           <span class="kw">:name</span> <span class="st">&quot;cl-yahoo-finance&quot;</span>)</code></pre>
+                           :author &quot;Paul Nathan&quot;
+                           :license &quot;LLGPL&quot;
+                           :name &quot;cl-yahoo-finance&quot;)</code></pre>
 <pre><code>$ ls ~/quicklisp/local-projects/cl-yahoo-finance/
 README.txt
 package.lisp
