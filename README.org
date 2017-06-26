@@ -50,6 +50,8 @@ Each pull request is vetted to correctly compile in Jekyll; this is
 then logged on Github and has to pass for a pull request to be
 mergable to master.
 
+We use [[https://github.com/orthecreedence/highlight-lisp][highlight-lisp]] for syntax highlighting.  Just add a =lisp= class to
+your code samples.
 
 ** Notes regarding build process.
 
