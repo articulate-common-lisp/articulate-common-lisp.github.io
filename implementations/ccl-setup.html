@@ -20,8 +20,8 @@ layout: default
 <h2 id="linedit">Linedit</h2>
 <p>A CLI tool called linedit is useful.</p>
 <pre class="sourceCode commonlisp"><code class="sourceCode commonlisp">(ql:quickload :linedit)
-(<span class="kw">require</span> :linedit)
-(<span class="kw">funcall</span> (<span class="kw">intern</span> <span class="st">&quot;INSTALL-REPL&quot;</span> :linedit) :wrap-current <span class="kw">t</span>)</code></pre>
+(require :linedit)
+(funcall (intern &quot;INSTALL-REPL&quot; :linedit) :wrap-current t)</code></pre>
 <h2 id="notes">Notes</h2>
 <p>CCL, in general, is very fast to load and has a good reputation for performance.</p>
 <hr/>
