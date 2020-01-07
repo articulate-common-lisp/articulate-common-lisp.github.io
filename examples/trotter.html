@@ -62,4 +62,11 @@ layout: default
 <p><code>HANDLER-CASE</code> wraps some code. <code>HANDLER-CASE</code> is part of the Common Lisp condition system; it serves as the &#8220;try&#8221; block in this situation. The list of errors below form the &#8220;catch&#8221; blocks. The interested reader is referred to <a href="../quicklinks.html">the quicklinks section</a> for more resources. Note that the errors are typical network errors- timeouts, stream errors, encoding errors.</p>
 <p>The first form in <code>HANDLER-CASE</code> requests in the url and assigns it to page. Supposing we got something, we make sure it&#8217;s an ascii page; if so, we then find all the url-ish looking things, using the previously defined global. Supposing that the page is, indeed, a string, we return it, otherwise we convert the octets to a string and return that. N.b.: Common Lisp makes a difference between strings and vectors of bytes. Of course, if an error occurred, the <code>HANDLER-CASE</code> will route to the known conditions.</p>
 <p>Note that in one case, <code>#+sbcl</code> is present; this is a Common Lisp syntax to indicate that the following form is for SBCL only.</p>
+<p>To test functionality, you can load your file and try a sample URL in the repl, replacing test_website:
+  <code>
+    (load "trotter.lisp")
+    (find-links "http://test_website.com")
+
+  </code>
+  
 <hr/>
