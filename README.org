@@ -56,7 +56,7 @@ your code samples.
 ** Notes regarding build process.
 
 Articulate Common Lisp is super-heavy on Docker
-(http://docker.com/). Docker is used for doing builds, as well as the
+(https://www.docker.com/). Docker is used for doing builds, as well as the
 vehicle of deployment. This is because we think it's simpler than
 having to install all sorts of other dependencies and keeping them up
 to date.

@@ -1,0 +1,9 @@
+.git
+.github
+.gitignore
+.jekyll-cache
+Gemfile.lock
+*.sh
+README.org
+HACKING.md
+AUTHORS.md
