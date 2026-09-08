@@ -1,4 +1,10 @@
 *~
-_site/*
-site/*
-*/_site/*
+_site/
+site/
+*/_site/
+
+# Generated inside the Jekyll container by bundler; the toolchain is pinned by
+# the image tag in build.sh / livetest.sh instead.
+Gemfile.lock
+.jekyll-cache/
+.sass-cache/
