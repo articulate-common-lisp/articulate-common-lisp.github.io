@@ -14,10 +14,7 @@ url: https://articulate-lisp.com
 baseurl: ''
 
 # This can be '' to hide the Github nav button
-github: 'pnathan/articulate-common-lisp'
-
-# Set this to your UA-# value, or '' to disable the block completely
-gaaccount: 'UA-44161726-1'
+github: 'articulate-common-lisp/articulate-common-lisp.github.io'
 
 # Set this to your disqus shortname to enable comments. Note that the 'comments'
 # setting below must also be true. Individual posts can override 'comments' to

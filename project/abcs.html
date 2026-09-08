@@ -11,7 +11,7 @@ layout: default
 <p>It is also feasible to develop in a more traditional style, where there is an edit/compile/revise cycle based upon files. In order to do that, use the LOAD form from the repl or the particular system&#8217;s automatic load command-line option. <code>(LOAD &quot;lispfile.lisp&quot;)</code>.</p>
 <p>Modern Lisp systems commonly provide on-the-fly compilation of the forms entered into it. This will slow down the boot process if the compilation happens every time; interpreted programs will run slower but boot faster. One common deployment strategy involves saving a preloaded <em>image</em> and executing it on demand.</p>
 <p>Most Lisp work is done within the Emacs/SLIME milieu; however, IDE&#8217;s like LispWorks or Allegro Common Lisp offer similar functionality.</p>
-<p>Typically the Lisp forms such as <code>LET</code>, <code>DEFUN</code>, and <code>MULTIPLE-VALUE-BIND</code> contain something known as an &#8220;implicit progn&#8221;. The implicit progn denotes a list of commands in a block structure (see <a href="http://www.lispworks.com/documentation/lw61/CLHS/Body/s_progn.htm">PROGN</a> for details). However, <code>IF</code> does not have this, which routinely is a gotcha to the author.</p>
+<p>Typically the Lisp forms such as <code>LET</code>, <code>DEFUN</code>, and <code>MULTIPLE-VALUE-BIND</code> contain something known as an &#8220;implicit progn&#8221;. The implicit progn denotes a list of commands in a block structure (see <a href="https://www.lispworks.com/documentation/HyperSpec/Body/s_progn.htm">PROGN</a> for details). However, <code>IF</code> does not have this, which routinely is a gotcha to the author.</p>
 <p>Common Lisp contains a macro facility - <code>DEFMACRO</code>. Generally, newbies are not advised to write their own macros, as they are powerful and can cause unexpected results.</p>
 <p>When setting a variable, use SETF, not SETQ or SET. Those commands operate at a lower level of abstraction and are not designed for everyday use.</p>
 
@@ -24,9 +24,9 @@ layout: default
 <ul>
 <li><p><a href="https://common-lisp.net/project/alexandria/">Alexandria</a> - a library of standard common functions.</p></li>
 <li><p>bordeaux-threads - a os threading library.</p></li>
-<li><p><a href="http://quickdocs.org/dexador/">dexador</a> - http client</p></li>
+<li><p><a href="https://quickdocs.org/dexador">dexador</a> - http client</p></li>
 <li><p>cl-ppcre - regular expression library</p></li>
-<li><p><a href="http://quickdocs.org/yason/">yason</a> - a json reader</p></li>
+<li><p><a href="https://quickdocs.org/yason">yason</a> - a json reader</p></li>
 <li><p>closer-mop - a library for managing metaobjects</p></li>
 <li><p>metabang-bind - a more sophisticated LET</p></li>
 <li><p><a href="https://common-lisp.net/project/anaphora/">anaphora</a> - standard package of exotic macros</p></li>
