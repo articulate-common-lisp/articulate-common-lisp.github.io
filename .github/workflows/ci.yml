@@ -49,7 +49,16 @@ jobs:
       - name: Check internal links
         uses: lycheeverse/lychee-action@v2.9.0
         with:
-          args: --offline --no-progress --include-fragments '_site/**/*.html'
+          # --root-dir is required: the site uses root-relative links
+          # (/css/..., /about.html) because baseurl is empty, and lychee
+          # cannot resolve those against local files without it. Must be
+          # an absolute path.
+          args: >-
+            --offline
+            --no-progress
+            --include-fragments
+            --root-dir ${{ github.workspace }}/_site
+            '_site/**/*.html'
           fail: true
 
       # The reviewable artifact for a pull request: the full built site.
@@ -87,5 +96,6 @@ jobs:
             --accept 200,203,206,403,429
             --max-retries 2
             --timeout 25
+            --root-dir ${{ github.workspace }}/_site
             '_site/**/*.html'
           fail: false
