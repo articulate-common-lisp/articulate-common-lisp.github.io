@@ -1,0 +1,101 @@
+# Replaces .travis.yml, which targeted travis-ci.org (shut down in 2021) and
+# pinned ruby 2.1.
+name: ci
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  # External links rot on their own schedule, not ours. Checked weekly rather
+  # than on every PR, so a third party's downtime cannot block a merge.
+  schedule:
+    - cron: '17 6 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+
+      # Same image and command as build.sh, so CI and local builds cannot
+      # drift apart.
+      - name: Build site
+        run: |
+          docker run --rm \
+            --user "$(id -u):$(id -g)" \
+            --volume "${PWD}:/srv/jekyll" \
+            --env GIT_CONFIG_COUNT=1 \
+            --env GIT_CONFIG_KEY_0=safe.directory \
+            --env GIT_CONFIG_VALUE_0=/srv/jekyll \
+            jekyll/jekyll:4.4.1 \
+            jekyll build --trace
+
+      - name: Check the build produced a site
+        run: |
+          test -f _site/index.html
+          # CNAME must survive into the output or the custom domain breaks.
+          test -f _site/CNAME
+          # Build tooling must not be published as site content.
+          for f in Dockerfile build.sh livetest.sh test.sh README.org; do
+            if [ -e "_site/$f" ]; then
+              echo "error: $f leaked into the built site" >&2
+              exit 1
+            fi
+          done
+
+      - name: Check internal links
+        uses: lycheeverse/lychee-action@v2.9.0
+        with:
+          # --root-dir is required: the site uses root-relative links
+          # (/css/..., /about.html) because baseurl is empty, and lychee
+          # cannot resolve those against local files without it. Must be
+          # an absolute path.
+          args: >-
+            --offline
+            --no-progress
+            --include-fragments
+            --root-dir ${{ github.workspace }}/_site
+            '_site/**/*.html'
+          fail: true
+
+      # The reviewable artifact for a pull request: the full built site.
+      - name: Upload built site
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: site-${{ github.sha }}
+          path: _site/
+          retention-days: 14
+
+  external-links:
+    # Informational: never gates a merge.
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Build site
+        run: |
+          docker run --rm \
+            --user "$(id -u):$(id -g)" \
+            --volume "${PWD}:/srv/jekyll" \
+            --env GIT_CONFIG_COUNT=1 \
+            --env GIT_CONFIG_KEY_0=safe.directory \
+            --env GIT_CONFIG_VALUE_0=/srv/jekyll \
+            jekyll/jekyll:4.4.1 \
+            jekyll build --trace
+      - name: Check external links
+        uses: lycheeverse/lychee-action@v2.9.0
+        with:
+          # 403 and 429 are bot-blocking, not rot: stackoverflow and
+          # sourceforge both refuse a plain browser UA.
+          args: >-
+            --no-progress
+            --accept 200,203,206,403,429
+            --max-retries 2
+            --timeout 25
+            --root-dir ${{ github.workspace }}/_site
+            '_site/**/*.html'
+          fail: false
