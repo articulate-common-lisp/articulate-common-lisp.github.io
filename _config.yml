@@ -3,8 +3,9 @@
 name: articulate-lisp.com
 description: A jekyll theme
 
-# url is currently only used only for the RSS feed in feed.xml
-url: http://articulate-lisp.com
+# url is currently only used only for the RSS feed in feed.xml.
+# Must be https: GitHub Pages enforces HTTPS, so http:// feed links redirect.
+url: https://articulate-lisp.com
 
 # baseurl will often be '', but for a project page on gh-pages, it needs to
 # be the project name.
@@ -25,11 +26,30 @@ disqus: ''
 comments: true
 
 permalink: /:year/:month/:title
-paginate: 3
 
-highlighter: pygments
-markdown: redcarpet
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+# Jekyll 4 ships kramdown and rouge. The old redcarpet/pygments settings were
+# fatal the moment any Markdown page gained front matter:
+#   "Invalid Markdown processor given: redcarpet" -> site could not be built.
+markdown: kramdown
+highlighter: rouge
 
-exclude: ['README.md', 'LICENSE']
+# NOTE: setting `exclude` REPLACES Jekyll's built-in defaults rather than
+# adding to them, so the defaults worth keeping are repeated here. The old
+# value (['README.md', 'LICENSE']) named two files that do not exist in this
+# repo and dropped the defaults, so the site published its own Dockerfile,
+# shell scripts and server source.
+# Do NOT exclude CNAME - GitHub Pages needs it in the built output to keep
+# the custom domain.
+exclude:
+  - AUTHORS.md
+  - Dockerfile
+  - Gemfile
+  - Gemfile.lock
+  - HACKING.md
+  - README.org
+  - build.sh
+  - livetest.sh
+  - test.sh
+  - node_modules
+  - source
+  - vendor
